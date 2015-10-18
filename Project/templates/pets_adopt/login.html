@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>登入</h1>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">送出</button>
+</form>
+</body>
+</html>
