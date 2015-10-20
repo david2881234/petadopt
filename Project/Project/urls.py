@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from pets_adopt import views
+from pets_adopt.views import pet,user
+
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','pets_adopt.views.index', name='index'),
-    url(r'^signup/$','pets_adopt.views.user_signup', name='signup'),
-    url(r'^logout/$','pets_adopt.views.user_logout', name='logout'),
-    url(r'^login/$','pets_adopt.views.user_login',name='login'),
-    url(r'^post/new/$','pets_adopt.views.new_pet',name='new_pets'),
-    url(r'^post/detail/(?P<pets_id>\d+)/$','pets_adopt.views.pet_detail',name='pet_detail'),
-    url(r'^post/adopt/(?P<pets_id>\d+)/$','pets_adopt.views.pet_adopt',name='pet_adopt'),
-    url(r'^post/adopt/success/(?P<adopt_id>\d+)/$','pets_adopt.views.pet_adopt_success',name='pet_adopt_success'),
+    url(r'^$','pets_adopt.views.pet.index', name='index'),
+    url(r'^signup/$','pets_adopt.views.user.user_signup', name='signup'),
+    url(r'^logout/$','pets_adopt.views.user.user_logout', name='logout'),
+    url(r'^login/$','pets_adopt.views.user.user_login',name='login'),
+    url(r'^post/new/$','pets_adopt.views.pet.new_pet',name='new_pets'),
+    url(r'^post/detail/(?P<pets_id>\d+)/$','pets_adopt.views.pet.pet_detail',name='pet_detail'),
+    url(r'^post/adopt/(?P<pets_id>\d+)/$','pets_adopt.views.pet.pet_adopt',name='pet_adopt'),
+    url(r'^post/adopt/success/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_success',name='pet_adopt_success'),
 ]

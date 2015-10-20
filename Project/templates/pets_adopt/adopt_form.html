@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <title></title>
 </head>
-<form method="POST" action="{% url 'pet_adopt' pets_id=pet.id%}">
 <body>
-<p>你要領養的寵物是:{{ pet_name }}</p> </br>
-<p>說說你的理由：</p>
-{{ form.as_p }}
- <button type="submit">送出</button>
+<form method="POST" action="{% url 'pet_adopt' pets_id=pet.id %}">
+    <p>你要領養的寵物是:{{ pet.pet_name }}</p> <br>
+    <p>說說你的理由：</p>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">送出</button>
+</form>
 </body>
 </html>

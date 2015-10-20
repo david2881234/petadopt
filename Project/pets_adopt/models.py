@@ -33,6 +33,9 @@ class Pets(models.Model):
     state = models.IntegerField(u'領養狀態',choices=pet_status,default=0)
     content = models.TextField(u'寵物簡介')
 
+    def __unicode__(self):
+        return self.pet_name
+
 
 class Adopt(models.Model):
     mode = (

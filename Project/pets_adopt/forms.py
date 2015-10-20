@@ -17,7 +17,10 @@ class UserForm(UserCreationForm):
             'state': '狀態',
             'profile': '個人自述',
         }
-
+class Change_User_State(forms.ModelForm):
+    class Meta():
+        model = get_user_model()
+        fields = ('state',)
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='帳號',max_length=255, required=True)
