@@ -33,3 +33,14 @@ class Pets(models.Model):
     state = models.IntegerField(u'領養狀態',choices=pet_status,default=0)
     content = models.TextField(u'寵物簡介')
 
+
+class Adopt(models.Model):
+    mode = (
+        (0,u'待批准'),
+        (1,u'通過'),
+        (2,u'拒絕'),
+    )
+    adopt_person = models.ForeignKey(settings.AUTH_USER_MODEL)
+    adopt_pet = models.ForeignKey(Pets)
+    mode = models.IntegerField(u'審核',choices=mode,default=0)
+    content = models.TextField(u'認養理由')

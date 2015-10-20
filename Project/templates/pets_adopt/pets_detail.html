@@ -13,7 +13,8 @@
 {{ pet.get_state_display }}
 <h1>狗狗介紹</h1>
 {{ pet.content }}
-
+</br>
+<a href="{% url 'pet_adopt' pets_id = Pets.id %}">我要領養</a></a> </br>
 <a href="{% url 'index' %}">回首頁</a>
 </body>
 </html>

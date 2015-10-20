@@ -15,5 +15,8 @@
         <a href="{% url 'signup' %}">註冊</a>
         <a href="{% url 'login' %}">登入</a>
     {% endif %}
+    {% for show in show %}
+    <h3><a href="{% url 'pet_detail' pets_id=pets.id %}"></a></h3>
+    {% endfor %}
 </body>
 </html>

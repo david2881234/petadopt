@@ -2,7 +2,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from models import Pets
+from models import Pets,Adopt
 
 
 class UserForm(UserCreationForm):
@@ -30,4 +30,19 @@ class Post_Pet(forms.ModelForm):
         labels = {
             'pet_name':'寵物的名字',
             'content':'寵物介紹一下',
+        }
+
+
+class Adopt_Request_Form(forms.ModelForm):
+    class Meta:
+        model = Adopt
+        fields = ('content',)
+
+
+class Adopt_Check(forms.ModelForm):
+    class Meta:
+        model = Adopt
+        fields = ('mode',)
+        labels = {
+            'mode':'是否同意認養?'
         }

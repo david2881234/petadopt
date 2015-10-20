@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>文章發布測試</h1>
-    <form method="POST" action="{% url 'new_pets' %}">
+    <form method="POST" action="{% url 'new_pet' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">送出</button>
