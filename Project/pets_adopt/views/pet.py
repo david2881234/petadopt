@@ -65,3 +65,9 @@ def pet_adopt_success(request,adopt_id):
     pet = adopt.adopt_pet
     return render(request,template_name,{'adopt':adopt,'pet':pet})
 
+@login_required
+def user_check_response(request):
+    template_name = 'pets_adopt/check_response.html'
+    pet = Pets.objects.filter(pet_publisher = request.user)
+    all_adopt_request = Adopt.objects.filter(adopt_pet = pet)
+    return render(request,template_name,{'all_adopt_requests':all_adopt_request})

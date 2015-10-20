@@ -47,3 +47,6 @@ class Adopt(models.Model):
     adopt_pet = models.ForeignKey(Pets)
     mode = models.IntegerField(u'審核',choices=mode,default=0)
     content = models.TextField(u'認養理由')
+
+    def __unicode__(self):
+        return unicode(self.adopt_person)

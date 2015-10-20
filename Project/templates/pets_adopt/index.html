@@ -16,6 +16,7 @@
            {% csrf_token %}
            更改狀態： {{ form.as_p }}
            <button type="submit">送出</button>
+           <a href="{% url 'check_all' %}">看看有誰要領養</a>
         </form>
     {% else %}
         <p>請先登入或註冊</p>

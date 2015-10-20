@@ -27,4 +27,5 @@ urlpatterns = [
     url(r'^post/detail/(?P<pets_id>\d+)/$','pets_adopt.views.pet.pet_detail',name='pet_detail'),
     url(r'^post/adopt/(?P<pets_id>\d+)/$','pets_adopt.views.pet.pet_adopt',name='pet_adopt'),
     url(r'^post/adopt/success/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_success',name='pet_adopt_success'),
+    url(r'^check_response/$','pets_adopt.views.pet.user_check_response',name='check_all'),
 ]

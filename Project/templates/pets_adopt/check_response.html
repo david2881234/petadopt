@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% for all_adopt_request in all_adopt_requests %}
+    有人要養:
+    <p>{{ all_adopt_request.adopt_pet }}</p>
+    那個人是:
+    <p>{{ all_adopt_request.adopt_person }}</p>
+{% endfor %}
+</body>
+</html>
