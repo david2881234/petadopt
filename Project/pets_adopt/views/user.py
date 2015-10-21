@@ -4,6 +4,7 @@ from django.contrib import messages,auth
 from pets_adopt.forms import UserForm,LoginForm
 from django.shortcuts import render,redirect,get_object_or_404
 
+
 def user_signup(request):
     template_name = 'pets_adopt/signup.html'
     if request.method == 'POST':
@@ -20,6 +21,7 @@ def user_signup(request):
         form = UserForm
     return render(request,template_name,{'form': form})
 
+"""
 def user_login(request):
     template_name = 'pets_adopt/login.html'
     if request.method == 'POST':
@@ -28,15 +30,18 @@ def user_login(request):
             user_name = request.POST['username']
             password = request.POST['password']
             user = authenticate(username = user_name,password = password)
-            if user is not None:
-                if user.is_active:
-                    login(request,user)
+            if user is not None and user.is_active:
+                login(request, user)
                     return redirect('index')
+
     else:
         form = LoginForm()
         return render(request,template_name,{'form': form})
+"""
 
+"""
 
 def user_logout(request):
     auth.logout(request)
     return redirect('index')
+"""

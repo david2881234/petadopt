@@ -1,15 +1,11 @@
-<!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
+{% block content %}
 <h1>登入</h1>
 <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table align = "center">
+        {{ form.as_table }}
+    </table>
     <button type="submit">送出</button>
 </form>
-</body>
-</html>
+{% endblock %}

@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<h1>成功送出領養資訊</h1>
-<p>你要領養的狗是: {{ pet.pet_name }} <br>
-<p>認養理由：</p><br>
-{{ adopt.content }}
-</body>
-</html>
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    <h1>成功送出領養資訊</h1>
+    <p>你要領養的狗是: {{ pet.pet_name }} <br>
+    <p>認養理由：</p><br>
+    {{ adopt.content }
+{% endblock %}

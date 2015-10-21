@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
+{% block content %}
 <form method="POST" action="{% url 'pet_adopt' pets_id=pet.id %}">
     <p>你要領養的寵物是:{{ pet.pet_name }}</p> <br>
     <p>說說你的理由：</p>
@@ -12,5 +7,4 @@
     {{ form.as_p }}
     <button type="submit">送出</button>
 </form>
-</body>
-</html>
+{% endblock %}

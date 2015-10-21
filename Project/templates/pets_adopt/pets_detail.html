@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
+
+{% block content %}
     <h1>發怖者</h1>
     {{ pet.pet_publisher }}
     <h1>狗狗名字</h1>
@@ -20,5 +16,4 @@
         <p>請先登入</p>
     {% endif %}
     <a href="{% url 'index' %}">回首頁</a>
-</body>
-</html>
+{% endblock %}

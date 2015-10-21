@@ -105,3 +105,4 @@ STATIC_URL = '/static/'
 
 #New User Model
 AUTH_USER_MODEL = 'pets_adopt.NewUser'
+LOGIN_REDIRECT_URL ='index'

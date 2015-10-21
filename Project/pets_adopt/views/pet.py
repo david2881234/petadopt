@@ -71,3 +71,5 @@ def user_check_response(request):
     pet = Pets.objects.filter(pet_publisher = request.user)
     all_adopt_request = Adopt.objects.filter(adopt_pet = pet)
     return render(request,template_name,{'all_adopt_requests':all_adopt_request})
+
+

@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
+{% block content %}
     <h1>文章發布測試</h1>
     <form method="POST" action="{% url 'new_pets' %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">送出</button>
     </form>
-
-</body>
-</html>
+{% endblock %}
