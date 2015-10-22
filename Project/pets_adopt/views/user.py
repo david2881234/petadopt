@@ -1,8 +1,10 @@
 #coding:utf-8
 from django.contrib.auth import login, authenticate
 from django.contrib import messages,auth
-from pets_adopt.forms import UserForm,LoginForm
+from pets_adopt.forms import UserForm,User_Edit
 from django.shortcuts import render,redirect,get_object_or_404
+from django.contrib.auth.decorators import login_required
+from pets_adopt.models import NewUser
 
 
 def user_signup(request):
@@ -20,6 +22,19 @@ def user_signup(request):
     else:
         form = UserForm
     return render(request,template_name,{'form': form})
+
+@login_required
+def user_edit(request,user_id): #要尋找更好寫法
+    user = get_object_or_404(NewUser, id=user_id)
+    template_name = "pets_adopt/user_edit.html"
+    if request.method =='POST':
+        form = User_Edit(request.POST, instance=user)
+        form.save()
+        return redirect('index')
+    else:
+        form = User_Edit(instance = user)
+        return render(request,template_name,{'forms':form,'user':user})
+
 
 """
 def user_login(request):

@@ -17,6 +17,12 @@ class UserForm(UserCreationForm):
             'state': '狀態',
             'profile': '個人自述',
         }
+
+class User_Edit(forms.ModelForm):
+    class Meta():
+        model = get_user_model()
+        fields = ('email','profile',)
+
 class Change_User_State(forms.ModelForm):
     class Meta():
         model = get_user_model()
@@ -40,12 +46,3 @@ class Adopt_Request_Form(forms.ModelForm):
     class Meta:
         model = Adopt
         fields = ('content',)
-
-
-class Adopt_Check(forms.ModelForm):
-    class Meta:
-        model = Adopt
-        fields = ('mode',)
-        labels = {
-            'mode':'是否同意認養?'
-        }

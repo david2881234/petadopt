@@ -1,0 +1,7 @@
+<!-- adopt_yes,Pets:pet -->
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    <p>恭喜你的{{ adopt_yes.adopt_pet }}已成功送養,以下是收養人的聯絡資訊</p><br/>
+    收養者:{{ adopt_yes.adopt_person }} <br/>
+    {{ adopt_yes.adopt_pet }}被他收養走了
+{% endblock %}

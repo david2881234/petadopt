@@ -1,9 +1,0 @@
-{% extends "pets_adopt/base.html" %}
-{% block content %}
-{% for all_adopt_request in all_adopt_requests %}
-    有人要養:
-    <p>{{ all_adopt_request.adopt_pet }}</p>
-    那個人是:
-    <p>{{ all_adopt_request.adopt_person }}</p>
-{% endfor %}
-{% endblock %}

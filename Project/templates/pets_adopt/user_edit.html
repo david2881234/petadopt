@@ -1,0 +1,8 @@
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    <form method="POST" action="{% url 'user_edit' user_id=user.id %}">
+    {% csrf_token %}
+    <table align="center">{{ forms.as_table }}</table>
+    <button type="submit">送出</button>
+    </form>
+{% endblock %}
