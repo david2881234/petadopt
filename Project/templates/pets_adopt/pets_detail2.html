@@ -13,5 +13,6 @@
     {% if user.is_authenticated == 0 %}
         <p>請先登入</p>
     {% endif %}
+    <a href="/blog/{{ pet.id }}">來看{{ pet.pet_name }}的blog</a> <br>
     <a href="{% url 'index' %}">回首頁</a>
 {% endblock %}
