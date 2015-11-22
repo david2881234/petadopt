@@ -2,12 +2,8 @@
 {% block content %}
     {% if user.is_authenticated %}
         <a href="{% url 'new_pets' %}"><h3>送養一個寵物</h3></a>
-        <form method="POST" action="{% url 'index' %}">
-           {% csrf_token %}
-           <a href="{% url 'check_all' %}"><h3>看看有誰要領養我的動物</h3></a>
-           更改狀態： {{ form.as_p }}
-           <button type="submit">送出</button> </br>
-        </form>
+        <a href="{% url 'check_all' %}"><h3>看看有誰要領養我的動物</h3></a>
+        <a href="{% url 'user_check_confirm' %}"><h3>等待我收養的寵物</h3></a>
     {% endif %}
     <h3>以下是所有狗狗</h3>
     {% for show in shows %}

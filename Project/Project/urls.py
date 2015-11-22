@@ -32,5 +32,9 @@ urlpatterns = patterns('',
     url(r'^post/adopt/(?P<pets_id>\d+)/$','pets_adopt.views.pet.pet_adopt',name='pet_adopt'),
     url(r'^post/adopt/success/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_success',name='pet_adopt_success'),
     url(r'^check_response/$','pets_adopt.views.pet.user_check_response',name='check_all'),
-    url(r'^check_response/pet_confirm/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_confirm',name='pet_adopt_confirm'),
+    url(r'^check_confirm/$','pets_adopt.views.pet.user_check_confirm',name='user_check_confirm'),
+    url(r'^check_confirm/pet_confirm/1/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_first_confirm',name='pet_adopt_first_confirm'),
+    url(r'^check_confirm/pet_confirm/2/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_second_confirm',name='pet_adopt_second_confirm'),
+    url(r'^check_response/pet_confirm/last/(?P<adopt_id>\d+)/$','pets_adopt.views.pet.pet_adopt_last_confirm',name='pet_adopt_last_confirm'),
+
 )

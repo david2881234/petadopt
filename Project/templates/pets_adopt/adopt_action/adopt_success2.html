@@ -1,0 +1,10 @@
+<!-- adopt_yes,publisher -->
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    <p>你已確定要領養{{ adopt_yes.adopt_pet }}以下是送養人的聯絡資訊</p><br/>
+    姓名:{{ publisher.name }}
+    身份證字號:{{ publisher.id_card_num }}
+    電話:{{ publisher.mobile }}
+    <br/>
+    請在30天內與送養人聯繫，並完成送養
+{% endblock %}

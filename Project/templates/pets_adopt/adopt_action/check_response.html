@@ -1,6 +1,13 @@
-<!--object:standby_pets,sent_pets -->
+<!--object:standby_pets,sent_pets,already -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+    <h2>等你把寵物送出去</h2>
+    {% for already in already %}
+        {{ already.adopt_pet }}
+        <a href="pet_confirm/last/{{ already.id }}">
+            <button>已完成送養</button>
+        </a>
+    {% endfor %}
     <h2>還沒送養的寵物：</h2>
     {% for each_standby_pets in standby_pets %}
         有人要養:
@@ -9,10 +16,10 @@
         <p>{{ each_standby_pets.adopt_person }}</p> <br/>
         理由:
         <p>{{ each_standby_pets.content }}</p>
-        <a href="pet_confirm/{{ each_standby_pets.id }}">
+        <a href="pet_confirm/1/{{ each_standby_pets.id }}">
             <button>就是他了</button>
         </a>
-        </br><br/>
+        <br/>
     {% endfor %}
     <h2>已經送養的寵物：</h2>
     {% for each_sent_pets in sent_pets %}

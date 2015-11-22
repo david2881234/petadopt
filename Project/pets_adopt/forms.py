@@ -6,27 +6,33 @@ from models import Pets,Adopt
 
 
 class UserForm(UserCreationForm):
+    name = forms.CharField(label='姓名',max_length=20,required=True)
+    facebook = forms.CharField(label='Facebook帳號',max_length=20,required=True)
+    address = forms.CharField(label='地址',max_length=50,required=True)
+    mobile = forms.CharField(label='手機號碼',max_length=11,required=True)
+    id_card_num = forms.CharField(label='身份證字號',max_length=10,required=True)
+    line = forms.CharField(label='Line ID',max_length=20,required=False)
+    home_tel = forms.CharField(label='家電',max_length=11,required=False)
     class Meta():
         model = get_user_model()
-        name = forms.CharField(label='姓名',max_length=50,required=True)
-        fields = ('username','name','email', 'gender', 'state','profile')
+        fields = ('username','name','gender','email','id_card_num','address','mobile','home_tel','facebook','line','profile',)
         labels = {
             'username': '帳號',
             'email': 'E-mail',
             'gender': '性別',
-            'state': '狀態',
             'profile': '個人自述',
         }
 
 class User_Edit(forms.ModelForm):
     class Meta():
         model = get_user_model()
-        fields = ('email','profile',)
+        fields = ('email','profile','mobile','home_tel','facebook','line','profile')
 
-class Change_User_State(forms.ModelForm):
+'''class Change_User_State(forms.ModelForm):
     class Meta():
         model = get_user_model()
         fields = ('state',)
+'''
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='帳號',max_length=255, required=True)
@@ -35,9 +41,15 @@ class LoginForm(forms.Form):
 class Post_Pet(forms.ModelForm):
     class Meta:
         model = Pets
-        fields = ('pet_name','content')
+        fields = ('dog_or_cat','pet_name','color','breed','area','chip','neuter','content',)
         labels = {
+            'dog_or_cat':'狗狗或貓貓',
             'pet_name':'寵物的名字',
+            'color':'毛色',
+            'breed':'品種',
+            'area':'地區',
+            'chip':'晶片有無',
+            'neuter':'是否有結紮',
             'content':'寵物介紹一下',
         }
 
