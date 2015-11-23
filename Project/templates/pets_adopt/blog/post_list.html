@@ -1,15 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
+{% block content %}
     {% for post in posts %}
         <h3>{{ post.title }}</h3>
-        publish date: {{ post.published_date }}
-        content: {{ post.content }}
+        publish date: {{ post.published_date }} <br/>
+        content: {{ post.content }} <br/>
     {% endfor %}
-    <a href="/blog/new/{{ pet.id }}">發布一篇{{ pet.pet_name }}的日誌</a> <br>
-</body>
-</html>
+<a href="/blog/new/{{ pet.id }}">發布一篇{{ pet.pet_name }}的日誌</a> <br/>
+{% endblock %}
