@@ -9,6 +9,8 @@
     {{ pet.get_state_display }}
     <h1>狗狗介紹</h1>
     {{ pet.content }}
+    <h1>毛色</h1>
+    {{ pet.color }}
     <br/>
     {% if user.is_authenticated == 0 %}
         <p>請先登入</p>

@@ -9,10 +9,10 @@ class UserForm(UserCreationForm):
     name = forms.CharField(label='姓名',max_length=20,required=True)
     facebook = forms.CharField(label='Facebook帳號',max_length=20,required=True)
     address = forms.CharField(label='地址',max_length=50,required=True)
-    mobile = forms.CharField(label='手機號碼',max_length=11,required=True)
+    mobile = forms.CharField(label='手機號碼',max_length=10,required=True)
     id_card_num = forms.CharField(label='身份證字號',max_length=10,required=True)
     line = forms.CharField(label='Line ID',max_length=20,required=False)
-    home_tel = forms.CharField(label='家電',max_length=11,required=False)
+    home_tel = forms.CharField(label='家電',max_length=10,required=False)
     class Meta():
         model = get_user_model()
         fields = ('username','name','gender','email','id_card_num','address','mobile','home_tel','facebook','line','profile',)
