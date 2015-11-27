@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'social_auth',
     'pets_adopt',
 )
 
@@ -107,3 +108,12 @@ STATIC_URL = '/static/'
 #New User Model
 AUTH_USER_MODEL = 'pets_adopt.NewUser'
 LOGIN_REDIRECT_URL ='index'
+
+#FACEBOOK_APP_ID = '882635961855402'
+#FACEBOOK_API_SECRET = '891c8446b5f97a6ae64c1a71d8666326'
+#AUTHENTICATION_BACKENDS = (
+#    'social_auth.backends.facebook.FacebookBackend',
+#    'django.contrib.auth.backends.ModelBackend',
+#)
+
+#SOCIAL_AUTH_LOGIN_REDIRECT_URL = 'index'

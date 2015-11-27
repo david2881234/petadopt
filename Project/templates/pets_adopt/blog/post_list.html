@@ -1,9 +1,18 @@
 {% extends "pets_adopt/base.html" %}
+<div id="fb-root"></div>
 {% block content %}
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.5&appId=882635961855402";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
     {% for post in posts %}
         <h3>{{ post.title }}</h3>
         publish date: {{ post.published_date }} <br/>
         content: {{ post.content }} <br/>
     {% endfor %}
-<a href="/blog/new/{{ pet.id }}">發布一篇{{ pet.pet_name }}的日誌</a> <br/>
+    <a href="/blog/new/{{ pet.id }}">發布一篇{{ pet.pet_name }}的日誌</a> <br/>
+    <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{ pet.id }}" data-numposts="5"></div>
 {% endblock %}

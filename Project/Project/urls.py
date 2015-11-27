@@ -22,6 +22,7 @@ from pets_adopt.views import pet,user
 
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    #url(r'',include('social_auth.urls')),
     url(r'^$', 'pets_adopt.views.pet.index', name='index'),
     url(r'^signup/$', 'pets_adopt.views.user.user_signup', name='signup'),
     url(r'^logout/$', 'django.contrib.auth.views.logout', {'next_page': 'index'}, name='logout'),
