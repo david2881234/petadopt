@@ -25,6 +25,17 @@ class NewUser(AbstractUser):  # (username,email,password1,password2)
         return self.name
 
 
+class Comment(models.Model):
+    credit = (
+        (0, u'優良'),
+        (1, u'普通'),
+        (2, u'不良'),
+    )
+    person = models.ForeignKey(settings.AUTH_USER_MODEL)
+    comment = models.TextField(u'評語')
+    credit = models.IntegerField(u'信用', choices=credit, default=0)
+
+
 class Pets(models.Model):
     pet_status = (
         (0, u'待認養'),

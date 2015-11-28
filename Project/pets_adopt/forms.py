@@ -2,7 +2,16 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
-from models import Pets,Adopt,Blog
+from models import Pets,Adopt,Blog,Comment
+from django.utils.safestring import mark_safe
+
+class HorizRadioRenderer(forms.RadioSelect.renderer): #自訂radio選項redner樣式
+    """ this overrides widget method to put radio buttons horizontally
+        instead of vertically.
+    """
+    def render(self):
+            """Outputs radios"""
+            return mark_safe(u'\n'.join([u'%s\n' % w for w in self]))
 
 
 class UserForm(UserCreationForm):
@@ -43,7 +52,7 @@ class Post_Pet(forms.ModelForm):
         model = Pets
         fields = ('dog_or_cat','pet_name','color','breed','area','chip','neuter','content',)
         labels = {
-            'dog_or_cat':'狗狗或貓貓',
+            'dog_or_cat':'狗或貓',
             'pet_name':'寵物的名字',
             'color':'毛色',
             'breed':'品種',
@@ -51,6 +60,11 @@ class Post_Pet(forms.ModelForm):
             'chip':'晶片有無',
             'neuter':'是否有結紮',
             'content':'寵物介紹一下',
+        }
+        widgets = {
+            'dog_or_cat': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'chip': forms.RadioSelect(renderer=HorizRadioRenderer),
+            'neuter': forms.RadioSelect(renderer=HorizRadioRenderer),
         }
 
 
@@ -67,4 +81,17 @@ class Blog_Post(forms.ModelForm):
         labels = {
             'title':'標題',
             'content':'內容',
+        }
+
+
+class Comment_Form(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('credit','comment',)
+        labels = {
+            'credit':'給送養者評價',
+            'comment':'寫下你對對方的評語',
+        }
+        widgets = {
+            'credit': forms.RadioSelect(renderer=HorizRadioRenderer)
         }

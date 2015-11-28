@@ -4,4 +4,10 @@
     <p>恭喜你的{{ adopt_yes.adopt_pet }}已成功送養給{{ adopt_yes.adopt_person }}</p><br/>
     <p>記得提醒對方，時常po寵物動態，讓大家了解{{ adopt_yes.adopt_pet }}在新家的生活:))</p>
     <br/>
+    <p>給對方的評價</p>
+    <form method="POST" action="{% url 'pet_adopt_last_confirm' adopt_id=adopt_yes.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">送出</button>
+    </form>
 {% endblock %}
