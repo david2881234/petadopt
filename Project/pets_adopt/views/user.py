@@ -18,6 +18,7 @@ def user_signup(request):
             user = authenticate(username = user_name, password = password)
             if user.is_active:
                 login(request,user)
+                messages.success(request,u'註冊成功並登錄')
             return redirect('index')
     else:
         form = UserForm
@@ -30,6 +31,7 @@ def user_edit(request,user_id): #要尋找更好寫法
     if request.method =='POST':
         form = User_Edit(request.POST, instance=user)
         form.save()
+        messages.success(request,u'修改成功')
         return redirect('index')
     else:
         form = User_Edit(instance = user)

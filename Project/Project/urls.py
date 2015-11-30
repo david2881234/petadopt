@@ -16,6 +16,8 @@ Including another URLconf
 #coding:utf-8
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
+from Project import settings
+from django.conf.urls.static import static
 from django.contrib.auth.views import login,logout
 from pets_adopt.views import pet,user
 
@@ -40,3 +42,6 @@ urlpatterns = patterns('',
     url(r'^blog/(?P<pets_id>\d+)/$', 'pets_adopt.views.blog.post_list', name='post_list'),
     url(r'^blog/new/(?P<pets_id>\d+)/$', 'pets_adopt.views.blog.post_new', name='post_new'),
 )
+
+if settings.DEBUG:
+	urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

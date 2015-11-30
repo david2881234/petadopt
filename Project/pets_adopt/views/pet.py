@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from pets_adopt.forms import Post_Pet,Adopt_Request_Form,Comment_Form
 from pets_adopt.models import Pets,Adopt,Comment
+from django.contrib import messages
 
 
 def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
@@ -16,11 +17,14 @@ def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
 def new_pet(request): #PO一個寵物送養資訊,確認後顯示寵物細節
     template_name = 'pets_adopt/post_a_pet.html'
     if request.method == 'POST':
-        form = Post_Pet(request.POST)
+        form = Post_Pet(request.POST,request.FILES)
         if form.is_valid:
+            image_file = request.FILES["photo"]
             Pets = form.save(commit=False)
+            Pets.photo = image_file
             Pets.pet_publisher = request.user
             Pets.save()
+            messages.success(request,u'新增寵物成功')
             return redirect('pet_detail',pets_id=Pets.id)
     else:
         form = Post_Pet()
@@ -49,7 +53,9 @@ def pet_adopt(request,pets_id): #收養者填寫收養單,發給送養者
             adopt.adopt_pet = pets
             adopt.mode = 0
             adopt.save()
-            return redirect('pet_adopt_success',adopt_id=adopt.id)
+            messages.success(request,u'領養訊息已送出')
+            #return redirect('pet_adopt_success',adopt_id=adopt.id)
+            return redirect('index')
     else:
         pet = get_object_or_404(Pets, id=pets_id)
         form = Adopt_Request_Form()

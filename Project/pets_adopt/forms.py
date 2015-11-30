@@ -33,6 +33,7 @@ class UserForm(UserCreationForm):
         }
 
 class User_Edit(forms.ModelForm):
+    line = forms.CharField(label='Line ID',max_length=20,required=False)
     class Meta():
         model = get_user_model()
         fields = ('email','profile','mobile','home_tel','facebook','line','profile')
@@ -48,9 +49,10 @@ class LoginForm(forms.Form):
     password = forms.CharField(label='密碼',widget=forms.PasswordInput, required=True)
 
 class Post_Pet(forms.ModelForm):
+    photo = forms.ImageField(label='放張寵物照')
     class Meta:
         model = Pets
-        fields = ('dog_or_cat','pet_name','color','breed','area','chip','neuter','content',)
+        fields = ('dog_or_cat','pet_name','color','breed','area','chip','neuter','content','photo')
         labels = {
             'dog_or_cat':'狗或貓',
             'pet_name':'寵物的名字',

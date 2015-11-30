@@ -20,6 +20,7 @@ class NewUser(AbstractUser):  # (username,email,password1,password2)
     facebook = models.CharField(u'Facebook', max_length=20, default='')
     line = models.CharField(u'Line', max_length=20, default='')
     profile = models.TextField(u'個人自述', max_length=200, default='')
+    photo = models.ImageField(u'照片',upload_to='person',null=True)
 
     def __unicode__(self):
         return self.name
@@ -84,7 +85,7 @@ class Pets(models.Model):
     dog_or_cat = models.IntegerField(u'狗或貓', choices=dog_or_cat, default=0)
     area = models.IntegerField(u'寵物所在地區', choices=area, default=0)
     breed = models.CharField(u'品種', max_length=20, default='')
-    image_file = models.FileField(upload_to='media/pet_image', null=True)
+    photo = models.ImageField(upload_to='pet', null=True)
 
     def __unicode__(self):
         return self.pet_name
@@ -113,6 +114,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=50)
     content = models.TextField(max_length=1000)
     published_date = models.DateTimeField(blank=True, null=True)
+    photo = models.ImageField(upload_to='article',null=True)
 
     def __unicode__(self):
         return self.title
