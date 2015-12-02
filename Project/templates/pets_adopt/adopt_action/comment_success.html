@@ -1,15 +1,7 @@
 {% extends "pets_adopt/base.html" %}
-
-<!DOCTYPE html>
-<html lang="zh-tw">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% block content %}
     <p>成功送出評價!</p><br/>
     <p>{{ comment.person }}的優良評價是{{ good }}普通評價是{{ ok }}</p> <br>
     <p>你對他的評價：</p> <br/>
     <p>{{ comment.comment }}</p>
-</body>
-</html>
+{% endblock %}
