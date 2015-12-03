@@ -54,6 +54,10 @@ class Pets(models.Model):
         (0, u'狗'),
         (1, u'貓'),
     )
+    sex= (
+        (True,u'男生'),
+        (False,u'女生'),
+    )
     area = (
         (0, u'台北市'),
         (1, u'新北市'),
@@ -75,16 +79,36 @@ class Pets(models.Model):
         (17, u'宜蘭縣'),
 
     )
+    size=(
+        (0,u'小型'),
+        (1,u'中型'),
+        (2,u'大型'),
+    )
+    age=(
+        (0,u'幼年'),
+        (1,u'成年'),
+    )
+    color = (
+        (0,u'白色'),
+        (1,u'黑色'),
+        (2,u'棕色'),
+        (3,u'黃色'),
+        (4,u'花色'),
+        (5,u'虎班'),
+        (6,u'其他')
+    )
     pet_publisher = models.ForeignKey(settings.AUTH_USER_MODEL)
     pet_name = models.CharField(u'寵物名', max_length=30, default='')
     state = models.IntegerField(u'領養狀態', choices=pet_status, default=0)
     content = models.TextField(u'寵物簡介')
-    color = models.CharField(u'毛色', max_length=5, default='')
+    color = models.IntegerField(u'毛色', choices=color, default=0)
     chip = models.BooleanField(u'晶片有無', choices=chip, default=False)
     neuter = models.BooleanField(u'是否有結紮', choices=neuter, default=False)
     dog_or_cat = models.IntegerField(u'狗或貓', choices=dog_or_cat, default=0)
     area = models.IntegerField(u'寵物所在地區', choices=area, default=0)
     breed = models.CharField(u'品種', max_length=20, default='')
+    age = models.IntegerField(u'年紀', choices=age, default=0)
+    sex = models.BigIntegerField(u'寵物性別',choices=sex,default=True)
     photo = models.ImageField(upload_to='pet', null=True)
 
     def __unicode__(self):

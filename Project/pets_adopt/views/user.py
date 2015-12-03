@@ -14,6 +14,9 @@ def user_signup(request):
         if form.is_valid():
             user_name = request.POST['username']
             password = form.clean_password2()
+            image_file = request.FILES["photo"]
+            form.save(commit=False)
+            form.photo = image_file
             form.save()
             user = authenticate(username = user_name, password = password)
             if user.is_active:
@@ -36,6 +39,14 @@ def user_edit(request,user_id): #要尋找更好寫法
     else:
         form = User_Edit(instance = user)
         return render(request,template_name,{'forms':form,'user':user})
+
+
+def user_detail(request,user_id):
+    user = get_object_or_404(NewUser, id=user_id)
+    template_name = "pets_adopt/user_edit.html"
+    return render(request,template_name, {'user':user})
+
+
 
 
 """

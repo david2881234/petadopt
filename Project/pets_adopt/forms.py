@@ -24,12 +24,13 @@ class UserForm(UserCreationForm):
     home_tel = forms.CharField(label='家電',max_length=10,required=False)
     class Meta():
         model = get_user_model()
-        fields = ('username','name','gender','email','id_card_num','address','mobile','home_tel','facebook','line','profile',)
+        fields = ('username','name','gender','email','id_card_num','address','mobile','home_tel','facebook','line','profile','photo')
         labels = {
             'username': '帳號',
             'email': 'E-mail',
             'gender': '性別',
             'profile': '個人自述',
+            'photo':'放張自己的照片'
         }
 
 class User_Edit(forms.ModelForm):
@@ -52,15 +53,18 @@ class Post_Pet(forms.ModelForm):
     photo = forms.ImageField(label='放張寵物照')
     class Meta:
         model = Pets
-        fields = ('dog_or_cat','pet_name','color','breed','area','chip','neuter','content','photo')
+        fields = ('dog_or_cat','pet_name','sex','age','size','color','breed','area','chip','neuter','content','photo')
         labels = {
             'dog_or_cat':'狗或貓',
             'pet_name':'寵物的名字',
+            'sex':'寵物性別',
+            'age':'年紀',
+            'size':'體型',
             'color':'毛色',
             'breed':'品種',
             'area':'地區',
             'chip':'晶片有無',
-            'neuter':'是否有結紮',
+            'neuter':'有無結紮',
             'content':'寵物介紹一下',
         }
         widgets = {

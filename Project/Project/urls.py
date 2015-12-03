@@ -41,6 +41,7 @@ urlpatterns = patterns('',
     url(r'^check_response/pet_confirm/last/(?P<adopt_id>\d+)/$', 'pets_adopt.views.pet.pet_adopt_last_confirm', name='pet_adopt_last_confirm'),
     url(r'^blog/(?P<pets_id>\d+)/$', 'pets_adopt.views.blog.post_list', name='post_list'),
     url(r'^blog/new/(?P<pets_id>\d+)/$', 'pets_adopt.views.blog.post_new', name='post_new'),
+    url(r'^user_detail/(?P<user_id>\d+)/$', 'pets_adopt.views.user.user_detail', name='user_detail'),
 )
 
 if settings.DEBUG:
