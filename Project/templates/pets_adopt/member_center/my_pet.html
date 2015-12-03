@@ -1,0 +1,11 @@
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    {% if pet %}
+        {% for pet in pet %}
+            <a href="{% url 'pet_detail' pets_id=pet.id %}"><h3>{{ pet.pet_name }}</h3></a><br/>
+            <h4>狀態：{{ pet.get_state_display }}</h4>
+        {% endfor %}
+    {% else %}
+        <h3>你目前還沒有寵物</h3>
+    {% endif %}
+{% endblock %}

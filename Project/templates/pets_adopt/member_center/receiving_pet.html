@@ -1,0 +1,15 @@
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    {% if adopt %}
+        {% for adopt in adopt %}
+            <a href="{% url 'pet_detail' pets_id=adopt.adopt_pet.id %}"><h4><{{ adopt.adopt_pet }}</h4></a><br/>
+            <h5>目前狀態:{{ adopt.get_mode_display }}</h5>
+        {% endfor %}
+        <a href="{% url 'user_check_confirm' %}"><h4>檢查收養狀態</h4></a>
+    {% else %}
+        <h3>你目前還沒有想收養的寵物</h3>
+    {% endif %}
+
+
+
+{% endblock %}

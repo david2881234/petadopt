@@ -1,7 +1,7 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
 <h1>註冊</h1>
-<form method="POST" action="{% url 'signup' %}">
+<form method="POST" enctype="multipart/form-data" action="{% url 'signup' %}">
     <table align="center">
         {% csrf_token %}
         {{ form.as_table }}

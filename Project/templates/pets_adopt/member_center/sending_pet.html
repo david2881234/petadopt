@@ -1,0 +1,11 @@
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    {% if pet %}
+        {% for pet in pet %}
+            <a href="{% url 'pet_detail' pets_id=pet.id %}">{{ pet.pet_name }}</a> <br/>
+        {% endfor %}
+        <a href="{% url 'check_all' %}"><h3>看看有誰要領養我的寵物</h3></a>
+    {% else %}
+        <h3>你目前沒有送養動物</h3>
+    {% endif %}
+{% endblock %}

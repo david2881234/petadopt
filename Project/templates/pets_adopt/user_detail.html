@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "pets_adopt/base.html" %}
 
-</body>
-</html>
+{% block content %}
+    他的名字：{{ user.name }}<br/>他的性別：{{ user.gender }}<br/>他家地址：{{ user.address }}<br/>
+    他的簡介：{{ user.profile }}<br>
+    評價列表：<br/>
+    {% for comment in all_comment %}
+        {{ comment }}<br>
+        {{ comment.get_credit_display }}<br>
+    {% endfor %}
+    優良評價:{{ good }}<br>
+    普通評價:{{ ok }}<br>
+    不良評價:{{ bad }}
+{% endblock %}

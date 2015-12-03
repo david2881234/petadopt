@@ -23,6 +23,7 @@ def new_pet(request): #PO一個寵物送養資訊,確認後顯示寵物細節
             Pets = form.save(commit=False)
             Pets.photo = image_file
             Pets.pet_publisher = request.user
+            Pets.pet_owner = request.user
             Pets.save()
             messages.success(request,u'新增寵物成功')
             return redirect('pet_detail',pets_id=Pets.id)
@@ -31,11 +32,11 @@ def new_pet(request): #PO一個寵物送養資訊,確認後顯示寵物細節
         return render(request,template_name,{'form':form})
 
 
-def pet_detail(request, pets_id): #顯示寵物細節,已領養 或 登入者就是送養者時,沒有領養按鈕
+def pet_detail(request, pets_id): #顯示寵物細節,已領養 或 登入者就是寵物擁有者時,沒有領養按鈕
     template_name = 'pets_adopt/pets_detail.html'
     template_name2 = 'pets_adopt/pets_detail2.html'
     pet = get_object_or_404(Pets, id=pets_id)
-    if (pet.pet_publisher == request.user) or (pet.state == 1):
+    if (pet.pet_owner == request.user) or (pet.state == 1):
         return render(request,template_name2,{'pet':pet})
     return render(request,template_name,{'pet':pet})
 
@@ -123,28 +124,31 @@ def pet_adopt_second_confirm(request, adopt_id): #收養者確認領養，等待
 def pet_adopt_last_confirm(request, adopt_id): #送養者確認完畢後，將那個領養表單設定為已領養，寵物state也設定為已領養,主人換掉
     adopt_yes = get_object_or_404(Adopt, id=adopt_id)
     pet = adopt_yes.adopt_pet
-    pet_owner = pet.pet_publisher
+    pet_new_owner = pet.pet_owner
     if request.method == 'POST': #信用評價
         template_name = 'pets_adopt/adopt_action/comment_success.html'
         form = Comment_Form(request.POST)
         comment = form.save(commit=False)
-        comment.person = pet_owner
+        comment.person = pet_new_owner
         comment.save()
-        all_comment = Comment.objects.filter(person = pet_owner)
+        all_comment = Comment.objects.filter(person = pet_new_owner)
         good = 0
         ok = 0
+        bad=0
         for cmt in all_comment: #顯示這個人的評價
             if cmt.credit == 0:
                 good += 1
             elif cmt.credit == 1:
                 ok += 1
-        return render(request,template_name, {'comment':comment,'good':good,'ok':ok})
+            elif cmt.credit == 2:
+                bad += 1
+        return render(request,template_name, {'comment':comment,'good':good,'ok':ok,'bad':bad})
     else:
         template_name = 'pets_adopt/adopt_action/adopt_success3.html'
         adopt_yes.mode = 1
         adopt_yes.save()
         pet.state = 1
-        pet.pet_publisher = adopt_yes.adopt_person
+        pet.pet_owner = adopt_yes.adopt_person
         pet.save()
         form = Comment_Form()
         return render(request,template_name,{'adopt_yes':adopt_yes,'pet':pet,'form':form})

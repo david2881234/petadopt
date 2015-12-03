@@ -22,7 +22,8 @@ class UserForm(UserCreationForm):
     id_card_num = forms.CharField(label='身份證字號',max_length=10,required=True)
     line = forms.CharField(label='Line ID',max_length=20,required=False)
     home_tel = forms.CharField(label='家電',max_length=10,required=False)
-    class Meta():
+    photo = forms.ImageField(label='身份證照')
+    class Meta:
         model = get_user_model()
         fields = ('username','name','gender','email','id_card_num','address','mobile','home_tel','facebook','line','profile','photo')
         labels = {
@@ -30,7 +31,6 @@ class UserForm(UserCreationForm):
             'email': 'E-mail',
             'gender': '性別',
             'profile': '個人自述',
-            'photo':'放張自己的照片'
         }
 
 class User_Edit(forms.ModelForm):

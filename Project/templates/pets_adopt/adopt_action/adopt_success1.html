@@ -2,9 +2,11 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
     <p>恭喜你的{{ adopt_yes.adopt_pet }}已找到收養人,以下是收養人的部份聯絡資訊</p><br/>
-    姓名:{{ adopt_person.name }}
-    身份證字號:{{ adopt_person.id_card_num }}
-    電話:{{ adopt_person.mobile }}
-    等待對方確認中
+    <p>姓名:{{ adopt_person.name }}</p><br/>
+    <p>身份證字號:{{ adopt_person.id_card_num }}</p><br/>
+    <p>電話:{{ adopt_person.mobile }}</p><br/>
+    <p>身份證: <img src="{{ MEDIA_URL }}{{ adopt_person.photo }}"></p> <br>
+    等待對方確認中<br>
+    <a href="{% url 'user_detail' user_id=adopt_person.id %}">他的個人簡介</a>
     <br/>
 {% endblock %}

@@ -4,17 +4,17 @@ from django.contrib import messages,auth
 from pets_adopt.forms import UserForm,User_Edit
 from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth.decorators import login_required
-from pets_adopt.models import NewUser
+from pets_adopt.models import NewUser,Adopt,Pets,Comment
 
 
 def user_signup(request):
     template_name = 'pets_adopt/signup.html'
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = UserForm(request.POST,request.FILES)
         if form.is_valid():
+            image_file = request.FILES["photo"]
             user_name = request.POST['username']
             password = form.clean_password2()
-            image_file = request.FILES["photo"]
             form.save(commit=False)
             form.photo = image_file
             form.save()
@@ -43,8 +43,19 @@ def user_edit(request,user_id): #要尋找更好寫法
 
 def user_detail(request,user_id):
     user = get_object_or_404(NewUser, id=user_id)
-    template_name = "pets_adopt/user_edit.html"
-    return render(request,template_name, {'user':user})
+    template_name = "pets_adopt/user_detail.html"
+    all_comment = Comment.objects.filter(person = user)
+    good = 0
+    ok = 0
+    bad = 0
+    for cmt in all_comment: #顯示這個人的評價
+        if cmt.credit == 0:
+            good += 1
+        elif cmt.credit == 1:
+            ok += 1
+        elif cmt.credit == 2:
+            bad += 1
+    return render(request,template_name, {'user':user,'all_comment':all_comment,'good':good,'ok':ok,'bad':bad})
 
 
 

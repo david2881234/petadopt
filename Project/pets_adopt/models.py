@@ -20,7 +20,7 @@ class NewUser(AbstractUser):  # (username,email,password1,password2)
     facebook = models.CharField(u'Facebook', max_length=20, default='')
     line = models.CharField(u'Line', max_length=20, default='')
     profile = models.TextField(u'個人自述', max_length=200, default='')
-    photo = models.ImageField(u'照片',upload_to='person',null=True)
+    photo = models.ImageField(u'身份證照片',upload_to='person',null=True)
 
     def __unicode__(self):
         return self.name
@@ -36,6 +36,8 @@ class Comment(models.Model):
     comment = models.TextField(u'評語')
     credit = models.IntegerField(u'信用', choices=credit, default=0)
 
+    def __unicode__(self):
+        return self.comment
 
 class Pets(models.Model):
     pet_status = (
@@ -54,7 +56,7 @@ class Pets(models.Model):
         (0, u'狗'),
         (1, u'貓'),
     )
-    sex= (
+    sex = (
         (True,u'男生'),
         (False,u'女生'),
     )
@@ -79,12 +81,12 @@ class Pets(models.Model):
         (17, u'宜蘭縣'),
 
     )
-    size=(
+    size = (
         (0,u'小型'),
         (1,u'中型'),
         (2,u'大型'),
     )
-    age=(
+    age = (
         (0,u'幼年'),
         (1,u'成年'),
     )
@@ -97,7 +99,8 @@ class Pets(models.Model):
         (5,u'虎班'),
         (6,u'其他')
     )
-    pet_publisher = models.ForeignKey(settings.AUTH_USER_MODEL)
+    pet_owner = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='current_owner',default='')
+    pet_publisher = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='previous_owner',default='')
     pet_name = models.CharField(u'寵物名', max_length=30, default='')
     state = models.IntegerField(u'領養狀態', choices=pet_status, default=0)
     content = models.TextField(u'寵物簡介')
@@ -108,7 +111,8 @@ class Pets(models.Model):
     area = models.IntegerField(u'寵物所在地區', choices=area, default=0)
     breed = models.CharField(u'品種', max_length=20, default='')
     age = models.IntegerField(u'年紀', choices=age, default=0)
-    sex = models.BigIntegerField(u'寵物性別',choices=sex,default=True)
+    sex = models.BooleanField(u'寵物性別',choices=sex,default=True)
+    size = models.IntegerField(u'體型',choices=size,default=0)
     photo = models.ImageField(upload_to='pet', null=True)
 
     def __unicode__(self):
@@ -125,7 +129,7 @@ class Adopt(models.Model):
     )
     adopt_person = models.ForeignKey(settings.AUTH_USER_MODEL)
     adopt_pet = models.ForeignKey(Pets)
-    mode = models.IntegerField(u'審核', choices=mode, default=0)
+    mode = models.IntegerField(u'審核狀態', choices=mode, default=0)
     content = models.TextField(u'認養理由')
 
     def __unicode__(self):

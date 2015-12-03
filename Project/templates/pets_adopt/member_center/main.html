@@ -1,0 +1,8 @@
+{% extends "pets_adopt/base.html" %}
+{% block content %}
+    你的名字：{{ user.name }}<br/>你的性別：{{ user.gender }}<br/>你家地址：{{ user.address }}<br/>
+    你的醜照：<img src="{{ MEDIA_URL }}{{ user.photo }}">
+    <a href="{% url 'my_pet' user_id=user.id %}"><h3>我的寵物</h3></a> <br/>
+    <a href="{% url 'receiving_pet' user_id=user.id %}"><h3>我想收養的寵物</h3></a><br/>
+    <a href="{% url 'sending_pet' user_id=user.id %}"><h3>我想送養的寵物</h3></a><br/>
+{% endblock %}

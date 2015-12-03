@@ -9,7 +9,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     {% for post in posts %}
-        <h3>{{ post.title }}</h3>
+        <h3>{{ post.title }},author:{{ pet.pet_owner }}</h3>
         publish date: {{ post.published_date }} <br/>
         content: {{ post.content }} <br/>
     {% endfor %}

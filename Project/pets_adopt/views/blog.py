@@ -12,7 +12,7 @@ def post_list(request, pets_id):
     template2 = 'pets_adopt/blog/post_list_no_create.html'
     pet = get_object_or_404(Pets, id=pets_id)
     blog = Blog.objects.filter(pet = pet)
-    if (pet.pet_publisher == request.user):
+    if (pet.pet_owner == request.user):
         return render(request, template, {'posts': blog, 'pet': pet})
     else:
         return render(request, template2, {'posts': blog, 'pet': pet})

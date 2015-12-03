@@ -1,8 +1,12 @@
 {% extends "pets_adopt/base.html" %}
 
 {% block content %}
+    {% if pet.state == 1 %}
+        <h1>新主人</h1>
+        <a href="{% url 'user_detail' user_id=pet.pet_owner.id %}">{{ pet.pet_owner }}</a>
+    {% endif %}
     <h1>發怖者</h1>
-    {{ pet.pet_publisher }}
+    <a href="{% url 'user_detail' user_id=pet.pet_publisher.id %}">{{ pet.pet_publisher }}</a>
     <h1>狗狗名字</h1>
     {{ pet.pet_name }}
     <h1>狗狗領養狀態</h1>
@@ -10,9 +14,9 @@
     <h1>狗狗介紹</h1>
     {{ pet.content }}
     <h1>毛色</h1>
-    {{ pet.color }}
+    {{ pet.get_color_display }}
     <h1>結紮</h1>
-    {{ pet.netuer }}
+    {{ pet.get_neuter_display }}
     <h1>照片</h1>
     <img src="{{ MEDIA_URL }}{{ pet.photo }}">
     <br/>

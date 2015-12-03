@@ -5,7 +5,7 @@
     姓名:{{ publisher.name }}
     身份證字號:{{ publisher.id_card_num }}
     電話:{{ publisher.mobile }}
-    個人簡介： <a href="{% url 'user_detail' user_id=publisher.id %}"></a>
+    <a href="{% url 'user_detail' user_id=publisher.id %}">他的個人簡介</a>
     <br/>
     請在30天內與送養人聯繫，並完成送養
 {% endblock %}
