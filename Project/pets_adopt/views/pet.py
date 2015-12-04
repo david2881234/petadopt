@@ -8,8 +8,9 @@ from django.contrib import messages
 
 def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
     template_name = 'pets_adopt/index.html'
-    show_all_pet = Pets.objects.all()
-    return render(request,template_name,{'shows':show_all_pet})
+    pet_not_adopt = Pets.objects.filter(state=0)
+    pet_have_adopt = Pets.objects.filter(state=1)
+    return render(request,template_name,{'pet_not_adopt':pet_not_adopt,'pet_have_adopt':pet_have_adopt})
 
 
 
