@@ -32,3 +32,20 @@ def post_new(request, pets_id):
     else:
         form = Blog_Post()
         return render(request, template, {'pet': pet, 'form': form})
+
+
+def question_index(request):
+    template = 'pets_adopt/extra/questionnaire.html'
+    return render(request, template, {})
+
+
+def question_handle(request):
+    template = 'pets_adopt/extra/question_result.html'
+    result = 0
+    right = False
+    for i in range(1, 11):
+        if request.POST.get('Q' + str(i)) == 'T':
+            result += 10
+    if result >= 70:
+        right = True
+    return render(request, template, {'right': right, 'result': result, })

@@ -1,0 +1,13 @@
+{% extends "pets_adopt/base.html" %}
+
+{% block content %}
+<div>
+    <p>您的得分是{{ result }}分</p>
+    {% ifequal right True %}
+        <h2>Congratulation</h2>
+        <p>/*Show an adopt button here if you want*/</p>
+    {% else %}
+        <h2>Sorry!</h2>
+    {% endifequal %}
+</div>
+{% endblock %}

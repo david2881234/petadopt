@@ -46,6 +46,9 @@ urlpatterns = patterns('',
     url(r'^member_center/my_pet/(?P<user_id>\d+)/$', 'pets_adopt.views.center.my_pet', name='my_pet'),
     url(r'^member_center/receiving_pet/(?P<user_id>\d+)/$', 'pets_adopt.views.center.sending_pet', name='sending_pet'),
     url(r'^member_center/sending_pet/(?P<user_id>\d+)/$', 'pets_adopt.views.center.receiving_pet', name='receiving_pet'),
+
+    url(r'^questionnaire/$', 'pets_adopt.views.blog.question_index', name='questionnaire'),
+    url(r'^question_result/$', 'pets_adopt.views.blog.question_handle', name='question_handle'),
 )
 
 if settings.DEBUG:

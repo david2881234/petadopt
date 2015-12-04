@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'social_auth',
-    'django_extensions',
+    # 'django_extensions',
     'pets_adopt',
 )
 
@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pets_adopt',
         'USER': 'root',
-        'PASSWORD': 'veto499',
+        'PASSWORD': 'ppnn13mod',
         'HOST': '',
         'PORT': '',
     }
