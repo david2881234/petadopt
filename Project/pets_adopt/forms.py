@@ -16,12 +16,12 @@ class HorizRadioRenderer(forms.RadioSelect.renderer): #自訂radio選項redner�
 
 class UserForm(UserCreationForm):
     name = forms.CharField(label='姓名',max_length=20,required=True)
-    facebook = forms.CharField(label='Facebook帳號',max_length=20,required=True)
+    facebook = forms.CharField(label='Facebook網址',max_length=100,required=True)
     address = forms.CharField(label='地址',max_length=50,required=True)
     mobile = forms.CharField(label='手機號碼',max_length=10,required=True)
     id_card_num = forms.CharField(label='身份證字號',max_length=10,required=True)
-    line = forms.CharField(label='Line ID',max_length=20,required=False)
-    home_tel = forms.CharField(label='家電',max_length=10,required=False)
+    line = forms.CharField(label='Line ID(非必填)',max_length=20,required=False)
+    home_tel = forms.CharField(label='家電(非必填)',max_length=10,required=False)
     photo = forms.ImageField(label='身份證照')
     class Meta:
         model = get_user_model()
@@ -51,6 +51,7 @@ class LoginForm(forms.Form):
 
 class Post_Pet(forms.ModelForm):
     photo = forms.ImageField(label='放張寵物照')
+    breed = forms.CharField(label='品種(非必填)',max_length=10,required=False)
     class Meta:
         model = Pets
         fields = ('dog_or_cat','pet_name','sex','age','size','color','breed','area','chip','neuter','content','photo')
@@ -61,7 +62,6 @@ class Post_Pet(forms.ModelForm):
             'age':'年紀',
             'size':'體型',
             'color':'毛色',
-            'breed':'品種',
             'area':'地區',
             'chip':'晶片有無',
             'neuter':'有無結紮',

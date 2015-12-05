@@ -6,6 +6,7 @@
     <p>身份證字號:{{ adopt_person.id_card_num }}</p><br/>
     <p>電話:{{ adopt_person.mobile }}</p><br/>
     <p>身份證: <img src="{{ MEDIA_URL }}{{ adopt_person.photo }}"></p> <br>
+    Facebook: <a href="{{ adopt_person.facebook }}">{{ adopt_person.name }}</a> <br>
     等待對方確認中<br>
     <a href="{% url 'user_detail' user_id=adopt_person.id %}">他的個人簡介</a>
     <br/>

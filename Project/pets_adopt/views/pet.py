@@ -10,10 +10,9 @@ from django.contrib import messages
 
 def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
     template_name = 'pets_adopt/index.html'
-    show_all_pet = Pets.objects.all()
-    return render(request,template_name,
-                  {'shows':show_all_pet,})
-
+    pet_not_adopt = Pets.objects.filter(state=0)
+    pet_have_adopt = Pets.objects.filter(state=1)
+    return render(request,template_name,{'pet_not_adopt':pet_not_adopt,'pet_have_adopt':pet_have_adopt})
 
 
 @login_required
@@ -177,6 +176,7 @@ def pet_search(request):
             shows = shows.filter(dog_or_cat=species)
         if sex != '-1':
             shows = shows.filter(sex=str_to_bool(sex))
+            sex = str_to_bool(sex)
         if area != '-1':
             shows = shows.filter(area=area)
         if size != '-1':
@@ -185,7 +185,7 @@ def pet_search(request):
            shows = shows.filter(age=age)
         if color != '-1':
             shows = shows.filter(color=color)
-        need_array = (int(species), str_to_bool(sex), int(area), int(size), int(age), int(color))
+        need_array = (int(species), sex, int(area), int(size), int(age), int(color))
     else:
         need_array = (species, sex, area, size, age, color)
     return render(request, template_name,

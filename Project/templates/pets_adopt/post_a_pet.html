@@ -1,9 +1,11 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <h1>文章發布測試</h1>
+    <h1>送養一個寵物</h1>
     <form method="POST" action="{% url 'new_pets' %}" enctype="multipart/form-data">
+      <table align="center">
         {% csrf_token %}
-        {{ form.as_p }}
+        {{ form.as_table }}
+      </table>
         <button type="submit">送出</button>
     </form>
 {% endblock %}
