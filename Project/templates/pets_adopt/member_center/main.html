@@ -1,4 +1,11 @@
 {% extends "pets_adopt/base.html" %}
+{% block extend_css %}
+  <style type="text/css">
+    #all_table td {
+        text-align:left;
+    }
+  </style>
+{% endblock %}
 {% block content %}
     <a href="{% url 'user_edit' user_id=user.id %}">
         <button type="submit" class="btn btn-default">會員資料編輯</button>
@@ -12,6 +19,18 @@
     <a href="{% url 'sending_pet' user_id=user.id %}">
         <button type="submit" class="btn btn-default">我想送養的寵物</button><br>
     </a>
-    你的名字：{{ user.name }}<br/>你的性別：{{ user.get_gender_display }}<br/>你家地址：{{ user.address }}<br/>
-    你的證件照：<br><img src="{{ MEDIA_URL }}{{ user.photo }}" width="50%">
+    <table align="center" class="table" id="all_table">
+      <tr><td Colspan="2"><h3>你的個人資料</h3></td></tr>
+      <tr><td>姓名</td><td>{{ user.name }}</td></tr>
+      <tr><td>性別</td><td>{{ user.get_gender_display }}<td></tr>
+      <tr><td>e-mail</td><td>{{ user.email }}<td></tr>
+      <tr><td>身份證字號</td><td>{{ user.id_card_num }}<td></tr>
+      <tr><td>手機號碼</td><td>{{ user.mobile }}<td></tr>
+      <tr><td>家裡電話</td><td>{{ user.home_tel }}<td></tr>
+      <tr><td>地址</td><td>{{ user.address }}<td></tr>
+      <tr><td>Facebook 網址</td><td>{{ user.facebook }}<td></tr>
+      <tr><td>Lind ID</td><td>{{ user.line }}<td></tr>
+      <tr><td>自我介紹</td><td>{{ user.profile }}<td></tr>
+      <tr><td>證件照</td><td><img src="{{ MEDIA_URL }}{{ user.photo }}" width="50%"><td></tr>
+    </table>
 {% endblock %}

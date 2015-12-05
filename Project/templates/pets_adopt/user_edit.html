@@ -1,5 +1,6 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+    <h3>編輯會員資料</h3>
     <form method="POST" action="{% url 'user_edit' user_id=user.id %}" class="form-horizontal user-edit-form">
     {% csrf_token %}
     {{ form.non_field_errors }}
