@@ -1,6 +1,9 @@
 <!--object:standby_pets,sent_pets,already -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+    <br>
+    <div class="row index-pet-show">
+      <div class="col-lg-4">
     <h2>等你出門把寵物送出去：</h2>
     {% if already %}
         {% for already in already %}
@@ -13,6 +16,8 @@
         {% else %}
             <p>無</p>
     {% endif %}
+      </div>
+      <div class="col-lg-4">
     <h2>認養人列表：</h2>
     {% if standby_pets %}
         {% for each_standby_pets in standby_pets %}
@@ -30,12 +35,17 @@
         {% else %}
             <p>無</p>
     {% endif %}
+      </div>
+      <div class="col-lg-4">
     <h2>已經送養的寵物：</h2>
     {% if sent_pets %}
         {% for each_sent_pets in sent_pets %}
-            <p>{{ each_sent_pets.pet_name }}</p><br/>
+            <a href="{% url 'pet_detail' pets_id=each_sent_pets.adopt_pet.id %}" target="_blank">
+                <button type="submit" class="btn btn-default">{{ each_sent_pets.adopt_pet }}</button>
+            </a><br/>
         {% endfor %}
         {% else %}
             <p>無</p>
     {% endif %}
+      </div>
 {% endblock %}

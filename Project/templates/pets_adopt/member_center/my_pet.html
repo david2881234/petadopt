@@ -1,13 +1,50 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+    <br>
+    <div class="row index-pet-show">
+        <div class="col-lg-12">
     {% if pet %}
-        {% for pet in pet %}
-            <a href="{% url 'pet_detail' pets_id=pet.id %}">
-                <button type="submit" class="btn btn-default">{{ pet.pet_name }}</button>
-            </a>
-            <h4>狀態：{{ pet.get_state_display }}</h4>
+        <h3>你的所有寵物</h3>
+        {% for show in pet %}
+            <div class="row pet-search-item">
+                <div class="col-md-3">
+                    <img src="{{ MEDIA_URL }}{{ show.photo }}" class="img-thumbnail"
+                         height="128px" width="128px">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>體型：{{ show.get_size_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>性別：{{ show.get_sex_display }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>種類：{{ show.get_dog_or_cat_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>地區：{{ show.get_area_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>毛色：{{ show.get_color_display }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>簡介：{{ show.content | safe | truncatechars_html:40 }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
+        </div>
     {% else %}
         <h3>你目前還沒有寵物</h3>
     {% endif %}
+    </div>
 {% endblock %}

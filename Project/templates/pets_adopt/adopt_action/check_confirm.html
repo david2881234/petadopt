@@ -1,6 +1,9 @@
 <!--object:adopts_confirmed, adopts_not_yet -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+    <br>
+    <div class="row index-pet-show">
+      <div class="col-lg-4">
     <h2>送養者已確認，等待你領養的寵物：</h2>
     {% if adopts_confirmed %}
         {% for adopt in adopts_confirmed %}
@@ -13,20 +16,30 @@
         {% else %}
             <p>無</p>
     {% endif %}
-    <h2>送養者已拒絕你的認養請求：</h2>
+      </div>
+      <div class="col-lg-4">
+    <h2>送養者已拒絕你的認養：</h2>
     {% if adopts_reject %}
         {% for adopt in adopts_reject %}
-            <p>{{ adopts.adopt_pet }}</p> <br/>
+        <a href="{% url 'pet_detail' pets_id=adopt.adopt_pet.id %}" target="_blank">
+            <button type="submit" class="btn btn-default">{{ adopt.adopt_pet }}</button>
+        </a><br/>
         {% endfor %}
         {% else %}
             <p>無</p>
     {% endif %}
+      </div>
+      <div class="col-lg-4">
     <h2>還沒被送養者確認是你的寵物</h2>
     {% if adopts_not_yet %}
     {% for adopt in adopts_not_yet %}
-        <p>{{ adopt.adopt_pet }}</p><br/>
+        <a href="{% url 'pet_detail' pets_id=adopt.adopt_pet.id %}" target="_blank">
+            <button type="submit" class="btn btn-default">{{ adopt.adopt_pet }}</button>
+        </a><br/>
     {% endfor %}
         {% else %}
         <p>無</p>
     {% endif %}
+      </div>
+    </div>
 {% endblock %}
