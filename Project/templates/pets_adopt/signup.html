@@ -1,11 +1,141 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+
+    <div id="signup-contain">
 <h1>註冊</h1>
-<form method="POST" enctype="multipart/form-data" action="{% url 'signup' %}">
-    <table align="center">
-        {% csrf_token %}
-        {{ form.as_table }}
-    </table>
-    <button type="submit">送出</button>
+<form method="POST" enctype="multipart/form-data" action="{% url 'signup' %}" class="form-horizontal signup-form">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+    <div class="form-group">
+    {{ form.username.errors }}
+    <label for="{{ form.username.id_for_label }}" class="col-sm-3 control-label">賬號:</label>
+        <div class="col-sm-9">
+        {{ form.username }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <span class="help-block">{{ form.username.help_text }}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.name.errors }}
+    <label for="{{ form.name.id_for_label }}" class="col-sm-3 control-label">姓名:</label>
+        <div class="col-sm-9">
+        {{ form.name }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.gender.errors }}
+    <label for="{{ form.gender.id_for_label }}" class="col-sm-3 control-label">性別:</label>
+        <div class="col-sm-9">
+        {{ form.gender }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.gender.email }}
+    <label for="{{ form.email.id_for_label }}" class="col-sm-3 control-label">E-mail:</label>
+        <div class="col-sm-9">
+        {{ form.email }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.id_card_num.errors }}
+    <label for="{{ form.id_card_num.id_for_label }}" class="col-sm-3 control-label">身份證字號:</label>
+        <div class="col-sm-9">
+        {{ form.id_card_num }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.address.errors }}
+    <label for="{{ form.address.id_for_label }}" class="col-sm-3 control-label">地址:</label>
+        <div class="col-sm-9">
+        {{ form.address }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.mobile.errors }}
+    <label for="{{ form.mobile.id_for_label }}" class="col-sm-3 control-label">手機號碼:</label>
+        <div class="col-sm-9">
+        {{ form.mobile }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.home_tel.errors }}
+    <label for="{{ form.home_tel.id_for_label }}" class="col-sm-3 control-label">家電（非必填）:</label>
+        <div class="col-sm-9">
+        {{ form.home_tel }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.facebook.errors }}
+    <label for="{{ form.facebook.id_for_label }}" class="col-sm-3 control-label">Facebook:</label>
+        <div class="col-sm-9">
+        {{ form.facebook }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.line.errors }}
+    <label for="{{ form.line.id_for_label }}" class="col-sm-3 control-label">Line:</label>
+        <div class="col-sm-9">
+        {{ form.line }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.profile.errors }}
+    <label for="{{ form.profile.id_for_label }}" class="col-sm-3 control-label">個人自述:</label>
+        <div class="col-sm-9">
+        {{ form.profile }}
+        </div>
+    </div>
+
+        <div class="form-group">
+    {{ form.photo.errors }}
+    <label for="{{ form.photo.id_for_label }}" class="col-sm-3 control-label">身份證照:</label>
+        <div class="col-sm-9">
+        {{ form.photo }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.password1.errors }}
+    <label for="{{ form.password1.id_for_label }}" class="col-sm-3 control-label">密碼:</label>
+        <div class="col-sm-9">
+        {{ form.password1 }}
+        </div>
+    </div>
+
+    <div class="form-group">
+    {{ form.password2.errors }}
+    <label for="{{ form.password2.id_for_label }}" class="col-sm-3 control-label">密碼確認:</label>
+        <div class="col-sm-9">
+        {{ form.password2 }}
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <span class="help-block">{{ form.password2.help_text }}</span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-default">送出</button>
+        </div>
+    </div>
 </form>
+
+    </div>
 {% endblock %}

@@ -16,6 +16,9 @@
 .base-template h3{
     text-align: center;
 }
+.errorlist {
+    color: red;
+}
 /***************end of base.html****************/
 
 
@@ -24,6 +27,13 @@
     margin-left: 30%;
     margin-right: 30%;
     width: 40%;
+    margin-top: 30px;
+}
+#login-contain {
+    margin-top: 8%;
+}
+#login-contain h1{
+    text-align: center;
 }
 /***************end of login.html****************/
 
@@ -33,3 +43,36 @@
     margin-top: -50px;
 }
 /***************end of index.html****************/
+
+
+/***************start of signup.html****************/
+.signup-form {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 30px;
+}
+#signup-contain h1{
+    text-align: center;
+}
+/***************end of signup.html****************/
+
+
+/***************start of post_a_pet.html****************/
+#post-pet-contain h1{
+    text-align: center;
+}
+.post-pet-form {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 30px;
+}
+/***************end of post_a_pet.html****************/
+
+
+/***************start of user_edit.html****************/
+.user-edit-form {
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 30px;
+}
+/***************end of user_edit.html****************/
