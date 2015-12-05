@@ -23,8 +23,9 @@
       <img src="{% static 'carousel/dog1.jpg' %}" class="first-slide" alt="First slide">
       <div class="container">
         <div class="carousel-caption">
-          <h1>認養零距離</h1>
-          <p>請以認養代替購買</p>
+          <h1>歡迎來到，狗日子的第十三天</h1>
+          <h3>我們希望，所有的流浪動物都能有個家</h3>
+          <p><a class="btn btn-lg btn-primary" href="{% url 'questionnaire' %}" role="button">請先進行自我評估</a></p>
         </div>
       </div>
     </div>
@@ -67,7 +68,7 @@
       <div class="col-lg-6">
       <h3>還沒被領養的寵物</h3>
       {% for show in pet_not_adopt %}
-          <table>
+          <table align="center">
 　          <tr>
 　          <td rowspan="3"><img src="{{ MEDIA_URL }}{{ show.photo }}" height="128" width="128"></td>
 　          <td>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></td>
@@ -84,7 +85,7 @@
       <div class="col-lg-6">
       <h3>已經被領養的寵物</h3>
       {% for show in pet_have_adopt %}
-          <table>
+          <table align="center">
 　          <tr>
 　          <td rowspan="3"><img src="{{ MEDIA_URL }}{{ show.photo }}" height="128" width="128"></td>
 　          <td>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></td>

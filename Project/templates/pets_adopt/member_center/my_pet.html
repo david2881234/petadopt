@@ -2,7 +2,9 @@
 {% block content %}
     {% if pet %}
         {% for pet in pet %}
-            <a href="{% url 'pet_detail' pets_id=pet.id %}"><h3>{{ pet.pet_name }}</h3></a><br/>
+            <a href="{% url 'pet_detail' pets_id=pet.id %}">
+                <button type="submit" class="btn btn-default">{{ pet.pet_name }}</button>
+            </a>
             <h4>狀態：{{ pet.get_state_display }}</h4>
         {% endfor %}
     {% else %}

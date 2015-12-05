@@ -9,13 +9,13 @@ from django.utils import timezone
 
 def post_list(request, pets_id):
     template = 'pets_adopt/blog/post_list.html'
-    template2 = 'pets_adopt/blog/post_list_no_create.html'
     pet = get_object_or_404(Pets, id=pets_id)
     blog = Blog.objects.filter(pet = pet)
+    can_post = False
     if (pet.pet_owner == request.user):
-        return render(request, template, {'posts': blog, 'pet': pet})
-    else:
-        return render(request, template2, {'posts': blog, 'pet': pet})
+        can_post = True
+    return render(request, template, {'posts': blog, 'pet': pet,'can_post':can_post})
+
 
 def post_new(request, pets_id):
     template = 'pets_adopt/blog/post_new.html'

@@ -10,7 +10,7 @@ def main(request,user_id): #會員中心，可修改個人資料及寵物資料�
     return render(request,template_name,{'user': user})
 
 
-
+@login_required
 def my_pet(request, user_id): #屬於我的寵物
     template_name = "pets_adopt/member_center/my_pet.html"
     user = get_object_or_404(NewUser, id=user_id)
@@ -18,12 +18,14 @@ def my_pet(request, user_id): #屬於我的寵物
     return render(request, template_name, {'user':user,'pet':pet})
 
 # Adopt.mode=0:待批準,1:通過,2:拒絕,3:待領養者確認,4:待送養者確認
+@login_required
 def sending_pet(request, user_id): #送養中的寵物
     template_name = "pets_adopt/member_center/sending_pet.html"
     user = get_object_or_404(NewUser, id=user_id)
     pet = Pets.objects.filter(pet_publisher=user, state=0)
     return render(request, template_name, {'user':user,'pet':pet})
 
+@login_required
 def receiving_pet(request, user_id): #想領養的寵物
     template_name = "pets_adopt/member_center/receiving_pet.html"
     user = get_object_or_404(NewUser, id=user_id)
