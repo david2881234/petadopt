@@ -6,12 +6,13 @@ from pets_adopt.models import Pets,Adopt,Comment
 from django.contrib import messages
 
 
+
+
 def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
     template_name = 'pets_adopt/index.html'
     pet_not_adopt = Pets.objects.filter(state=0)
     pet_have_adopt = Pets.objects.filter(state=1)
     return render(request,template_name,{'pet_not_adopt':pet_not_adopt,'pet_have_adopt':pet_have_adopt})
-
 
 
 @login_required
@@ -152,4 +153,43 @@ def pet_adopt_last_confirm(request, adopt_id): #送養者確認完畢後，將�
         pet.pet_owner = adopt_yes.adopt_person
         pet.save()
         form = Comment_Form()
-        return render(request,template_name,{'adopt_yes':adopt_yes,'pet':pet,'form':form})
+        return render(request, template_name, {'adopt_yes':adopt_yes,'pet':pet,'form':form})
+
+
+def str_to_bool(v):
+    return v.lower() in ('true', 'yes')
+
+
+def pet_search(request):
+    template_name = 'pets_adopt/extra/pet_search.html'
+    pet = Pets()
+    species = str(request.POST.get('species'))
+    sex = str(request.POST.get('sex'))
+    area = str(request.POST.get('area'))
+    size = str(request.POST.get('size'))
+    age = str(request.POST.get('age'))
+    color = str(request.POST.get('color'))
+    shows = Pets.objects.all()
+    if species!="None" and sex!="None" and area!="None" and size!="None" \
+        and age!="None" and color!="None":
+        if species != '-1':
+            shows = shows.filter(dog_or_cat=species)
+        if sex != '-1':
+            shows = shows.filter(sex=str_to_bool(sex))
+            sex = str_to_bool(sex)
+        if area != '-1':
+            shows = shows.filter(area=area)
+        if size != '-1':
+            shows = shows.filter(size=size)
+        if age != '-1':
+           shows = shows.filter(age=age)
+        if color != '-1':
+            shows = shows.filter(color=color)
+        need_array = (int(species), sex, int(area), int(size), int(age), int(color))
+    else:
+        need_array = (species, sex, area, size, age, color)
+    return render(request, template_name,
+                  {'pet': pet, 'shows': shows, 'need_array': need_array, })
+
+
+

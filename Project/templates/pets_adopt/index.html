@@ -62,11 +62,12 @@
 </div>
 {% endblock %}
 {% block content %}
-    <div class="row">
+
+    <div class="row index-pet-show">
       <div class="col-lg-6">
       <h3>還沒被領養的寵物</h3>
       {% for show in pet_not_adopt %}
-          <table align="center">
+          <table>
 　          <tr>
 　          <td rowspan="3"><img src="{{ MEDIA_URL }}{{ show.photo }}" height="128" width="128"></td>
 　          <td>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></td>
@@ -83,7 +84,7 @@
       <div class="col-lg-6">
       <h3>已經被領養的寵物</h3>
       {% for show in pet_have_adopt %}
-          <table align="center">
+          <table>
 　          <tr>
 　          <td rowspan="3"><img src="{{ MEDIA_URL }}{{ show.photo }}" height="128" width="128"></td>
 　          <td>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></td>

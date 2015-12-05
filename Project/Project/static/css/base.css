@@ -7,3 +7,29 @@
     box-shadow: 3px 4px 10px;
     z-index: 100;
 }
+
+
+/***************start of base.html****************/
+.base-template {
+    padding-top: 80px;
+}
+.base-template h3{
+    text-align: center;
+}
+/***************end of base.html****************/
+
+
+/***************start of login.html****************/
+#login-form {
+    margin-left: 30%;
+    margin-right: 30%;
+    width: 40%;
+}
+/***************end of login.html****************/
+
+
+/***************start of index.html****************/
+.index-pet-show {
+    margin-top: -50px;
+}
+/***************end of index.html****************/

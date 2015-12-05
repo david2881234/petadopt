@@ -2,11 +2,9 @@
 {% block content %}
 <h1>登入</h1>
     <!--<a href="{'% url "socialauth_begin" "facebook" %}">FB登入</a> -->
-<form method="POST" action="{% url 'login' %}">
+<form method="POST" action="{% url 'login' %}" id="login-form">
     {% csrf_token %}
-    <table align = "center">
-        {{ form.as_table }}
-    </table>
-    <button type="submit">送出</button>
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-default">送出</button>
 </form>
 {% endblock %}

@@ -13,7 +13,6 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css"/>
     <!-- Custom styles for this template -->
-    <link href="{% static 'css/starter_template.css' %}" rel="stylesheet">
      {% block extend_css %}
      {% endblock %}
 
@@ -39,6 +38,7 @@
                <li><a href="{% url 'new_pets' %}">我要送養</a></li>
               {% endif %}
             <li><a href="{% url 'questionnaire' %}">自我評估</a></li>
+            <li><a href="{% url 'pet_search' %}">搜索</a></li>
           </ul>
           <ul class = "nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
@@ -68,7 +68,7 @@
     {% block carousel %}
     {% endblock %}
     <div class="container">
-      <div class="starter-template">
+      <div class="base-template">
         {% block content %}
         {% endblock %}
       </div>
