@@ -77,20 +77,44 @@
             <div class="col-lg-12">
         <h3>符合條件的寵物</h3>
         {% for show in shows %}
-                  <table align="center">
-　                  <tr>
-　                  <td rowspan="3"><img src="{{ MEDIA_URL }}{{ show.photo }}" height="128" width="128"></td>
-　                  <td>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></td>
-　                  </tr>
-                    <tr>
-　                  <td>體型：{{ show.get_size_display }}</td>
-　                  </tr>
-　                  <tr>
-　                  <td>性別：{{ show.get_sex_display }}</td>
-　                  </tr>
-                  </table>
+            <div class="row pet-search-item">
+                <div class="col-md-3">
+                    <img src="{{ MEDIA_URL }}{{ show.photo }}" class="img-thumbnail"
+                         height="128px" width="128px">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>名字：<a href="{% url 'pet_detail' pets_id=show.id %}">{{ show.pet_name }}</a></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>體型：{{ show.get_size_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>性別：{{ show.get_sex_display }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p>種類：{{ show.get_dog_or_cat_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>地區：{{ show.get_area_display }}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>毛色：{{ show.get_color_display }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>簡介：{{ show.content | safe | truncatechars_html:40 }}</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
           {% endfor %}
-              </div>
+            </div>
           </div>
     {% else %}
         <p>抱歉，沒有找到符合要求的寵物哦</p>

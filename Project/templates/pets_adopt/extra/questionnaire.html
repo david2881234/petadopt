@@ -2,71 +2,82 @@
 {% load staticfiles %}
 
 {% block content %}
-    <div>
+    <div class="row">
         <form action="{%  url 'pets_adopt.views.blog.question_handle' %}" method="post">
             {% csrf_token %}
-            <div class="radio">
-            <strong>您的住處可以養寵物嗎？在認養前您會先取得家人/室友/房東的同意嗎？</strong> <br>
-            <label for="Q1T"><input type="radio" name="Q1" value="T" id="Q1T"/>是滴</label><br/>
-            <label for="Q1F"><input type="radio" name="Q1" value="F" id="Q1F"/>不是</label>
+
+            <div class="row">
+            <div class="col-md-6">
+            <strong>您的住處可以養寵物嗎？在認養前您會先取得家人/室友/房東的同意嗎？</strong>
+            <div class="radio"><label for="Q1T"><input type="radio" name="Q1" value="T" id="Q1T"/>是滴</label></div>
+            <div class="radio"><label for="Q1F"><input type="radio" name="Q1" value="F" id="Q1F"/>不是</label></div>
+            </div>
+            <div class="col-md-6">
+            <strong>你願意承擔一隻毛小孩的一生不離不棄、遇到困難想辦法解決，與他們共患難嗎？</strong>
+            <div class="radio"><label for="Q2T"><input type="radio" name="Q2" value="T" id="Q2T"/>是滴</label></div>
+            <div class="radio"><label for="Q2F"><input type="radio" name="Q2" value="F" id="Q2F"/>不是</label></div>
+            </div>
             </div>
 
-            <div class="radio">
-            <strong>你願意承擔一隻毛小孩的一生不離不棄、遇到困難想辦法解決，與他們共患難嗎？</strong><br>
-            <label for="Q2T"><input type="radio" name="Q2" value="T" id="Q2T"/>是滴</label><br/>
-            <label for="Q2F"><input type="radio" name="Q2" value="F" id="Q2F"/>不是</label>
-            </div>
-
-            <div class="radio">
+            <div class="row">
+            <div class="col-md-6">
             <strong>有沒有考慮過未來結婚、度假遠遊、畢業、出國、搬家、等將如何「安置」寵物？</strong><br>
-            <label for="Q3T"><input type="radio" name="Q3" value="T" id="Q3T"/>是滴</label><br/>
-            <label for="Q3F"><input type="radio" name="Q3" value="F" id="Q3F"/>不是</label>
+            <div class="radio"><label for="Q3T"><input type="radio" name="Q3" value="T" id="Q3T"/>是滴</label></div> 
+            <div class="radio"><label for="Q3F"><input type="radio" name="Q3" value="F" id="Q3F"/>不是</label></div>
             </div>
-
-            <div class="radio">
+            <div class="col-md-6">
             <strong>有想過當有一天你懷孕或者有小孩的時候，會如何協調貓咪與小孩間的問題？是否還能繼續照顧他們嗎？</strong><br>
-            <label for="Q4T"><input type="radio" name="Q4" value="T" id="Q4T"/>是滴</label><br/>
-            <label for="Q4F"><input type="radio" name="Q4" value="F" id="Q4F"/>不是</label>
+            <div class="radio"><label for="Q4T"><input type="radio" name="Q4" value="T" id="Q4T"/>是滴</label></div> 
+            <div class="radio"><label for="Q4F"><input type="radio" name="Q4" value="F" id="Q4F"/>不是</label></div>
+            </div>
             </div>
 
-            <div class="radio">
+            <div class="row">
+            <div class="col-md-6">
             <strong>家人/室友會不會對寵物過敏？即使身旁有人過敏依舊可以照顧好寵物嗎？</strong> <br>
-            <label for="Q5T"><input type="radio" name="Q5" value="T" id="Q5T"/>是滴</label><br/>
-            <label for="Q5F"><input type="radio" name="Q5" value="F" id="Q5F"/>不是</label>
+            <div class="radio"><label for="Q5T"><input type="radio" name="Q5" value="T" id="Q5T"/>是滴</label></div> 
+            <div class="radio"><label for="Q5F"><input type="radio" name="Q5" value="F" id="Q5F"/>不是</label></div>
             </div>
-
-            <div class="radio">
+            <div class="col-md-6">
             <strong>您是否已滿20歲</strong><br>
-            <label for="Q6T"><input type="radio" name="Q6" value="T" id="Q6T"/>是滴</label><br/>
-            <label for="Q6F"><input type="radio" name="Q6" value="F" id="Q6F"/>不是</label>
+            <div class="radio"><label for="Q6T"><input type="radio" name="Q6" value="T" id="Q6T"/>是滴</label></div> 
+            <div class="radio"><label for="Q6F"><input type="radio" name="Q6" value="F" id="Q6F"/>不是</label></div>
+            </div>
             </div>
 
-            <div class="radio">
+            <div class="row">
+            <div class="col-md-6">
             <strong>您是否已有足夠的心理準備，接受寵物的某些狀況，例如：生病、掉毛、嘔吐、打破東西、打壞家具、吵鬧、誤咬主人、
                 逃跑等等，對於發生這些狀況時仍然不討厭牠、不遺棄、願意教育，並堅持愛護照顧牠嗎？</strong><br>
-            <label for="Q7T"><input type="radio" name="Q7" value="T" id="Q7T"/>是滴</label><br/>
-            <label for="Q7F"><input type="radio" name="Q7" value="F" id="Q7F"/>不是</label>
+            <div class="radio"><label for="Q7T"><input type="radio" name="Q7" value="T" id="Q7T"/>是滴</label></div> 
+            <div class="radio"><label for="Q7F"><input type="radio" name="Q7" value="F" id="Q7F"/>不是</label></div>
             </div>
-
-            <div class="radio">
+            <div class="col-md-6">
             <strong>可否接受負擔寵物的節紮及預防針費用？並在牠們生病時給予適當的照顧？</strong><br>
-            <label for="Q8T"><input type="radio" name="Q8" value="T" id="Q8T"/>是滴</label><br/>
-            <label for="Q8F"><input type="radio" name="Q8" value="F" id="Q8F"/>不是</label>
+            <div class="radio"><label for="Q8T"><input type="radio" name="Q8" value="T" id="Q8T"/>是滴</label></div> 
+            <div class="radio"><label for="Q8F"><input type="radio" name="Q8" value="F" id="Q8F"/>不是</label></div>
+            </div>
             </div>
 
-            <div class="radio">
+            <div class="row">
+            <div class="col-md-6">
             <strong>您願意定期清理乾淨寵物的排泄物，並保持環境整潔嗎？</strong><br>
-            <label for="Q9T"><input type="radio" name="Q9" value="T" id="Q9T"/>是滴</label><br/>
-            <label for="Q9F"><input type="radio" name="Q9" value="F" id="Q9F"/>不是</label>
+            <div class="radio"><label for="Q9T"><input type="radio" name="Q9" value="T" id="Q9T"/>是滴</label></div> 
+            <div class="radio"><label for="Q9F"><input type="radio" name="Q9" value="F" id="Q9F"/>不是</label></div>
             </div>
-
-            <div class="radio">
+            <div class="col-md-6">
             <strong>是否預備好每天花一定的時間關心寵物，陪伴寵物玩耍？(寵物的壽命約有10至15年，慎重考慮自己是否能負責牠的一輩子。)</strong><br>
-            <label for="Q10T"><input type="radio" name="Q10" value="T" id="Q10T"/>是滴</label><br/>
-            <label for="Q10F"><input type="radio" name="Q10" value="F" id="Q10F"/>不是</label>
+            <div class="radio"><label for="Q10T"><input type="radio" name="Q10" value="T" id="Q10T"/>是滴</label></div> 
+            <div class="radio"><label for="Q10F"><input type="radio" name="Q10" value="F" id="Q10F"/>不是</label></div>
+            </div>
             </div>
 
-            <br/><button type="submit" class="btn btn-default">完成問卷，開始評估</button>
+
+            <div class="row" style="margin-top: 10px">
+                <div class="col-md-4 col-md-offset-5">
+                <button type="submit" class="btn btn-default">完成問卷，開始評估</button>
+                </div>
+            </div>
         </form>
     </div>
 {% endblock %}
