@@ -1,9 +1,17 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <a href="{% url 'user_edit' user_id=user.id %}">會員資料編輯</a><br>
+    <a href="{% url 'user_edit' user_id=user.id %}">
+        <button type="submit" class="btn btn-default">會員資料編輯</button>
+    </a>
+    <a href="{% url 'my_pet' user_id=user.id %}">
+        <button type="submit" class="btn btn-default">我的寵物</button>
+    </a>
+    <a href="{% url 'receiving_pet' user_id=user.id %}">
+        <button type="submit" class="btn btn-default">我想收養的寵物</button>
+    </a>
+    <a href="{% url 'sending_pet' user_id=user.id %}">
+        <button type="submit" class="btn btn-default">我想送養的寵物</button><br>
+    </a>
     你的名字：{{ user.name }}<br/>你的性別：{{ user.get_gender_display }}<br/>你家地址：{{ user.address }}<br/>
     你的證件照：<br><img src="{{ MEDIA_URL }}{{ user.photo }}" width="50%">
-    <a href="{% url 'my_pet' user_id=user.id %}"><h3>我的寵物</h3></a> <br/>
-    <a href="{% url 'receiving_pet' user_id=user.id %}"><h3>我想收養的寵物</h3></a><br/>
-    <a href="{% url 'sending_pet' user_id=user.id %}"><h3>我想送養的寵物</h3></a><br/>
 {% endblock %}

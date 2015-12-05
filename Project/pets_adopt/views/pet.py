@@ -36,11 +36,14 @@ def new_pet(request): #PO一個寵物送養資訊,確認後顯示寵物細節
 
 def pet_detail(request, pets_id): #顯示寵物細節,已領養 或 登入者就是寵物擁有者時,沒有領養按鈕
     template_name = 'pets_adopt/pets_detail.html'
-    template_name2 = 'pets_adopt/pets_detail2.html'
     pet = get_object_or_404(Pets, id=pets_id)
-    if (pet.pet_owner == request.user) or (pet.state == 1):
-        return render(request,template_name2,{'pet':pet})
-    return render(request,template_name,{'pet':pet})
+    can_adopt = 0
+    if (pet.pet_owner == request.user):
+        can_adopt = 1
+    elif (pet.state == 1):
+        can_adopt = 2
+    return render(request,template_name,{'pet':pet,"can_adopt":can_adopt})
+#can_adopt 0:可領養 1:不可以因為自己就是主人 2:不可以因為已被領養
 
 #以下為收養者發出欲收養訊息,收養者檢視全部收養人,並決定一個適合的收養人
 

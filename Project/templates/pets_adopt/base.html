@@ -36,9 +36,9 @@
 
               {% if user.is_authenticated %}
                <li><a href="{% url 'new_pets' %}">我要送養</a></li>
+               <li><a href="{% url 'pet_search' %}">我要領養</a></li>
               {% endif %}
             <li><a href="{% url 'questionnaire' %}">自我評估</a></li>
-            <li><a href="{% url 'pet_search' %}">搜索</a></li>
           </ul>
           <ul class = "nav navbar-nav navbar-right">
             {% if user.is_authenticated %}

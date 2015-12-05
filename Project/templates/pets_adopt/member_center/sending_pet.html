@@ -2,7 +2,9 @@
 {% block content %}
     {% if pet %}
         {% for pet in pet %}
-            <a href="{% url 'pet_detail' pets_id=pet.id %}">{{ pet.pet_name }}</a> <br/>
+            <a href="{% url 'pet_detail' pets_id=pet.id %}">
+                <button type="submit" class="btn btn-default">{{ pet.pet_name }}</button>
+            </a> <br/>
         {% endfor %}
         <a href="{% url 'check_all' %}"><h3>看看有誰要領養我的寵物</h3></a>
     {% else %}
