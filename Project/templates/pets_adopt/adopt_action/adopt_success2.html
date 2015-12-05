@@ -1,12 +1,21 @@
 <!-- adopt_yes,publisher -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <p>你已確定要領養{{ adopt_yes.adopt_pet }}以下是送養人的聯絡資訊</p><br/>
-    姓名:{{ publisher.name }} <br>
-    身份證字號:{{ publisher.id_card_num }}<br>
-    電話:{{ publisher.mobile }}<br>
-    Facebook: <a href="{{ publisher.facebook }}">{{ publisher.name }}</a> <br>
+    <h3>你已確定要領養{{ adopt_yes.adopt_pet }}以下是送養人的聯絡資訊</h3><br/>
+    <table align="center" class="table">
+    <tr><td>姓名</td><td>{{ publisher.name }}</td></tr>
+    <tr><td>性別</td><td>{{ publisher.get_gender_display }}</td></tr>
+    <tr><td>E-mail</td><td>{{ publisher.email }}</td></tr>
+    <tr><td>身份證字號</td><td>{{ publisher.id_card_num }}</td></tr>
+    <tr><td>手機號碼</td><td>{{ adopt_person.mobile }}</td></tr>
+    <tr><td>家電</td><td>{{ publisher.home_tel }}</td></tr>
+    <tr><td>Facebook</td><td><a href="{{ publisher.facebook }}" target="_blank">{{ publisher.name }}</a></td></tr>
+    <tr><td>Line ID</td><td>{{ publisher.line }}</td></tr>
+    <tr><td>個人簡介</td><td>{{ publisher.profile }}</td></tr>
+    <tr><td>證件照</td><td><img src="{{ MEDIA_URL }}{{ publisher.photo }}"></td></tr>
+    </table>
+
     <a href="{% url 'user_detail' user_id=publisher.id %}">他的個人簡介</a>
     <br/>
-    請在30天內與送養人聯繫，並完成送養
+    <h3>請在30天內與送養人聯繫，並完成送養，否則將系統將會取消</h3>
 {% endblock %}

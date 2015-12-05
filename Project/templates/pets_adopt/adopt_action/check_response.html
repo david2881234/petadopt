@@ -1,28 +1,41 @@
 <!--object:standby_pets,sent_pets,already -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <h2>等你把寵物送出去</h2>
-    {% for already in already %}
-        {{ already.adopt_pet }}
-        <a href="pet_confirm/last/{{ already.id }}">
-            <button>已完成送養</button>
-        </a>
-    {% endfor %}
-    <h2>還沒送養的寵物：</h2>
-    {% for each_standby_pets in standby_pets %}
-        有人要養:
-        <p>{{ each_standby_pets.adopt_pet }}</p> <br/>
-        那個人是:
-        <p>{{ each_standby_pets.adopt_person }}</p> <br/>
-        理由:
-        <p>{{ each_standby_pets.content }}</p>
-        <a href="pet_confirm/1/{{ each_standby_pets.id }}">
-            <button>就是他了</button>
-        </a>
-        <br/>
-    {% endfor %}
+    <h2>等你出門把寵物送出去：</h2>
+    {% if already %}
+        {% for already in already %}
+            {{ already.adopt_pet }} <br>
+            <a href="pet_confirm/last/{{ already.id }}">
+                <button>已完成領養</button>
+            </a>
+                <button>未完成領養</button>
+        {% endfor %}
+        {% else %}
+            <p>無</p>
+    {% endif %}
+    <h2>認養人列表：</h2>
+    {% if standby_pets %}
+        {% for each_standby_pets in standby_pets %}
+            有人要養:
+            <p>{{ each_standby_pets.adopt_pet }}</p> <br/>
+            那個人是:
+            <a href="{% url 'user_detail' user_id=each_standby_pets.adopt_person.id %}" target="_blank">{{ each_standby_pets.adopt_person }}</a>
+            理由:
+            <p>{{ each_standby_pets.content }}</p>
+            <a href="pet_confirm/1/{{ each_standby_pets.id }}">
+                <button type="submit" class="btn btn-default">就是他了</button>
+            </a>
+            <br/>
+        {% endfor %}
+        {% else %}
+            <p>無</p>
+    {% endif %}
     <h2>已經送養的寵物：</h2>
-    {% for each_sent_pets in sent_pets %}
-        <p>{{ each_sent_pets.pet_name }}</p><br/>
-    {% endfor %}
+    {% if sent_pets %}
+        {% for each_sent_pets in sent_pets %}
+            <p>{{ each_sent_pets.pet_name }}</p><br/>
+        {% endfor %}
+        {% else %}
+            <p>無</p>
+    {% endif %}
 {% endblock %}

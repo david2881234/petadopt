@@ -1,5 +1,6 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
+
     <p>成功送出評價!</p><br/>
     <p>{{ comment.person }}的優良評價是{{ good }} 普通評價是{{ ok }} 不良評價是{{ bad }}</p> <br>
     <p>你對他的評價：{{ comment.get_credit_display }}</p> <br/>
