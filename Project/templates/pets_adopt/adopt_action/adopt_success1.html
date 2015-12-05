@@ -1,13 +1,20 @@
 <!-- adopt_yes,adopt_person -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <p>恭喜你的{{ adopt_yes.adopt_pet }}已找到收養人,以下是收養人的部份聯絡資訊</p><br/>
-    <p>姓名:{{ adopt_person.name }}</p><br/>
-    <p>身份證字號:{{ adopt_person.id_card_num }}</p><br/>
-    <p>電話:{{ adopt_person.mobile }}</p><br/>
-    <p>身份證: <img src="{{ MEDIA_URL }}{{ adopt_person.photo }}"></p> <br>
-    Facebook: <a href="{{ adopt_person.facebook }}">{{ adopt_person.name }}</a> <br>
-    等待對方確認中<br>
-    <a href="{% url 'user_detail' user_id=adopt_person.id %}">他的個人簡介</a>
+    <p>恭喜你的{{ adopt_yes.adopt_pet }}已找到收養人,以下是收養人的聯絡資訊</p><br/>
+    <table align="center" class="table">
+    <tr><td>姓名</td><td>{{ adopt_person.name }}</td></tr>
+    <tr><td>性別</td><td>{{ adopt_person.get_gender_display }}</td></tr>
+    <tr><td>E-mail</td><td>{{ adopt_person.email }}</td></tr>
+    <tr><td>身份證字號</td><td>{{ adopt_person.id_card_num }}</td></tr>
+    <tr><td>手機號碼</td><td>{{ adopt_person.mobile }}</td></tr>
+    <tr><td>家電</td><td>{{ adopt_person.home_tel }}</td></tr>
+    <tr><td>Facebook</td><td><a href="{{ adopt_person.facebook }}" target="_blank">{{ adopt_person.name }}</a></td></tr>
+    <tr><td>Line ID</td><td>{{ adopt_person.line }}</td></tr>
+    <tr><td>個人簡介</td><td>{{ adopt_person.profile }}</td></tr>
+    <tr><td>證件照</td><td><img src="{{ MEDIA_URL }}{{ adopt_person.photo }}"></td></tr>
+    </table>
+
+    <h3>等待對方確認中</h3><br>
     <br/>
 {% endblock %}

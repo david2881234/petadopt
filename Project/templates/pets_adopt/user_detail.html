@@ -1,14 +1,49 @@
 {% extends "pets_adopt/base.html" %}
-
+{% block extend_css %}
+  <style type="text/css">
+    #all_table td {
+        text-align:center;
+    }
+  </style>
+{% endblock %}
 {% block content %}
-    他的名字：{{ user.name }}<br/>他的性別：{{ user.get_gender_display }}<br/>
-    他的簡介：{{ user.profile }}<br>
-    評價列表：<br/>
+    <table align="center" class="table" id="all_table">
+      <tr><td Colspan="2"><h3>個人簡介</h3></td></tr>
+      <tr><td>姓名</td><td>{{ user.name }}</td></tr>
+      <tr><td>性別</td><td>{{ user.get_gender_display }}</tr>
+      <tr><td>e-mail</td><td>{{ user.email }}</tr>
+      <tr><td>自我介紹</td><td>{{ user.profile }}</tr>
+    </table>
+
+    {% if all_comment %}
+    <table align="center" class="table" id="all_table">
+      <tr><td Colspan="2"></td>評價列表</tr>
     {% for comment in all_comment %}
-        {{ comment }}<br>
-        {{ comment.get_credit_display }}<br>
+      <tr><td>評語：</td><td>{{ comment }}</td></tr>
+      <tr><td>評價：</td><td>{{ get_credit_display }}</td></tr>
     {% endfor %}
-    優良評價:{{ good }}<br>
-    普通評價:{{ ok }}<br>
-    不良評價:{{ bad }}
+    </table>
+    {% endif %}
+    <table align="center" class="table" id="all_table">
+      <tr><td>優良評價:{{ good }}</td><td>普通評價:{{ ok }}</td><td>不良評價:{{ bad }}</td></tr>
+    </table>
+    {% if all_pet %}
+      <table align="center" class="table" id="all_table">
+        <tr><td Colspan="2"><h3>他的寵物</h3></td></tr>
+        {% for pet in all_pet %}
+　      <tr>
+　          <td rowspan="3"><img src="{{ MEDIA_URL }}{{ pet.photo }}" height="128" width="128"></td>
+　          <td>名字：<a href="{% url 'pet_detail' pets_id=pet.id %}" target="_blank">{{ pet.pet_name }}</a></td>
+　          </tr>
+            <tr>
+　          <td>體型：{{ pet.get_size_display }}</td>
+　          </tr>
+　          <tr>
+　          <td>性別：{{ pet.get_sex_display }}</td>
+　          </tr>
+    {% endfor %}
+    </table>
+        {% else %}
+          <p>無</p>
+    {% endif %}
 {% endblock %}

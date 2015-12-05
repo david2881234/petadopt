@@ -2,15 +2,31 @@
 {% extends "pets_adopt/base.html" %}
 {% block content %}
     <h2>送養者已確認，等待你領養的寵物：</h2>
-    {% for adopt in adopts_confirmed %}
-        <p>{{ adopt.adopt_pet }}</p> <br/>
-        <a href="pet_confirm/2/{{ adopt.id }}">
-            <button>確定領養</button>
-        </a>
+    {% if adopts_confirmed %}
+        {% for adopt in adopts_confirmed %}
+            <p>{{ adopt.adopt_pet }}</p> <br/>
+            <a href="pet_confirm/2/{{ adopt.id }}">
+                <button>確定領養</button>
+            </a>
         <br/>
-    {% endfor %}
+        {% endfor %}
+        {% else %}
+            <p>無</p>
+    {% endif %}
+    <h2>送養者已拒絕你的認養請求：</h2>
+    {% if adopts_reject %}
+        {% for adopt in adopts_reject %}
+            <p>{{ adopts.adopt_pet }}</p> <br/>
+        {% endfor %}
+        {% else %}
+            <p>無</p>
+    {% endif %}
     <h2>還沒被送養者確認是你的寵物</h2>
+    {% if adopts_not_yet %}
     {% for adopt in adopts_not_yet %}
         <p>{{ adopt.adopt_pet }}</p><br/>
     {% endfor %}
+        {% else %}
+        <p>無</p>
+    {% endif %}
 {% endblock %}
