@@ -95,7 +95,8 @@ def user_check_confirm(request): #顯示待領養者確認的寵物
         template_name = 'pets_adopt/adopt_action/check_confirm.html'
         adopt_confirmed = Adopt.objects.filter(adopt_person = request.user, mode=3)
         adopt_not_yet = Adopt.objects.filter(adopt_person = request.user, mode=0)
-        return render(request,template_name,{'adopts_confirmed':adopt_confirmed,'adopts_not_yet':adopt_not_yet})
+        adopt_reject = Adopt.objects.filter(adopt_person = request.user, mode=2)
+        return render(request,template_name,{'adopts_confirmed':adopt_confirmed,'adopts_not_yet':adopt_not_yet,'adopts_reject':adopt_reject})
 # mode=0:待批準,1:通過,2:拒絕,3:待領養者確認,4:待送養者確認
 
 def pet_adopt_first_confirm(request, adopt_id): #將那個領養表單設定待收養者確認,其他拒絕

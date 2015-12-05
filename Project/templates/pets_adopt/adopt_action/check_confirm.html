@@ -9,6 +9,10 @@
         </a>
         <br/>
     {% endfor %}
+    <h2>送養者已拒絕你的認養請求：</h2>
+    {% for adopt in adopts_reject %}
+        <p>{{ adopts.adopt_pet }}</p> <br/>
+    {% endfor %}
     <h2>還沒被送養者確認是你的寵物</h2>
     {% for adopt in adopts_not_yet %}
         <p>{{ adopt.adopt_pet }}</p><br/>
