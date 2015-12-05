@@ -49,6 +49,7 @@ urlpatterns = patterns('',
 
     url(r'^questionnaire/$', 'pets_adopt.views.blog.question_index', name='questionnaire'),
     url(r'^question_result/$', 'pets_adopt.views.blog.question_handle', name='question_handle'),
+    url(r'^pet_search/$', 'pets_adopt.views.pet.pet_search', name='pet_search'),
 )
 
 if settings.DEBUG:
