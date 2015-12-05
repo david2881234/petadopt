@@ -1,7 +1,7 @@
 <!-- adopt_yes,adopt_person -->
 {% extends "pets_adopt/base.html" %}
 {% block content %}
-    <p>恭喜你的{{ adopt_yes.adopt_pet }}已找到收養人,以下是收養人的聯絡資訊</p><br/>
+    <h3>恭喜你的{{ adopt_yes.adopt_pet }}已找到收養人,以下是收養人的聯絡資訊</h3><br/>
     <table align="center" class="table">
     <tr><td>姓名</td><td>{{ adopt_person.name }}</td></tr>
     <tr><td>性別</td><td>{{ adopt_person.get_gender_display }}</td></tr>

@@ -19,7 +19,6 @@ body{
 /***************start of base.html****************/
 .base-template {
     padding-top: 80px;
-    background-color:#dff0d8;
 }
 .base-template h3{
     text-align: center;
