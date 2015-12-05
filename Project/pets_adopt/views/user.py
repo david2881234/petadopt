@@ -42,10 +42,10 @@ def user_edit(request,user_id): #要尋找更好寫法
 
 
 def user_detail(request,user_id):
-    user = get_object_or_404(NewUser, id=user_id)
+    usr = get_object_or_404(NewUser, id=user_id)
     template_name = "pets_adopt/user_detail.html"
-    all_comment = Comment.objects.filter(person = user)
-    all_pet = Pets.objects.filter(pet_owner=user)
+    all_comment = Comment.objects.filter(person = usr)
+    all_pet = Pets.objects.filter(pet_owner=usr)
     good = 0
     ok = 0
     bad = 0
@@ -56,7 +56,7 @@ def user_detail(request,user_id):
             ok += 1
         elif cmt.credit == 2:
             bad += 1
-    return render(request,template_name, {'user':user,'all_comment':all_comment,'good':good,'ok':ok,'bad':bad,'all_pet':all_pet})
+    return render(request,template_name, {'usr':usr,'all_comment':all_comment,'good':good,'ok':ok,'bad':bad,'all_pet':all_pet})
 
 
 
