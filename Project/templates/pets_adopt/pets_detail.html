@@ -28,7 +28,7 @@
         <h1>新主人</h1>
         <a href="{% url 'user_detail' user_id=pet.pet_owner.id %}">{{ pet.pet_owner }}</a>
     {% endif %}
-    <h1>發怖者</h1>
+    <h1>送養人</h1>
     <a href="{% url 'user_detail' user_id=pet.pet_publisher.id %}">{{ pet.pet_publisher }}</a>
     <h1>狗狗名字</h1>
     {{ pet.pet_name }}
