@@ -38,7 +38,7 @@ def user_edit(request,user_id): #要尋找更好寫法
         return redirect('index')
     else:
         form = User_Edit(instance = user)
-        return render(request,template_name,{'forms':form,'user':user})
+        return render(request,template_name,{'form':form,'user':user})
 
 
 def user_detail(request,user_id):
