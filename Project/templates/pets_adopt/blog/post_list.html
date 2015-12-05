@@ -9,9 +9,10 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     {% for post in posts %}
-        <h3>{{ post.title }},author:{{ pet.pet_owner }}</h3>
-        publish date: {{ post.published_date }} <br/>
-        content: {{ post.content }} <br/>
+        <h3>{{ post.title }}</h3><br><h4>作者:{{ pet.pet_owner }}</h4>
+        文章內容: {{ post.content }} <br/>
+        <img src="{{ MEDIA_URL }}{{ post.photo }}"> <br>
+        發布日期: {{ post.published_date }} <br/>
     {% endfor %}
     <a href="/blog/new/{{ pet.id }}">發布一篇{{ pet.pet_name }}的日誌</a> <br/>
     <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{ pet.id }}" data-numposts="5"></div>

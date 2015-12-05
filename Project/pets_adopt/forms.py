@@ -81,9 +81,10 @@ class Adopt_Request_Form(forms.ModelForm):
 
 
 class Blog_Post(forms.ModelForm):
+    photo = forms.ImageField(label='上傳照片')
     class Meta:
         model = Blog
-        fields = ('title','content',)
+        fields = ('title','content','photo')
         labels = {
             'title':'標題',
             'content':'內容',

@@ -11,6 +11,7 @@
         <h3>{{ post.title }},author:{{ pet.pet_owner }}</h3>
         publish date: {{ post.published_date }} <br/>
         content: {{ post.content }} <br/>
+        photo: <img src="{{ MEDIA_URL }}{{ post.photo }}">
     {% endfor %}
     <div class="fb-comments" data-href="http://127.0.0.1:8000/blog/{{ pet.id }}" data-numposts="5"></div>
 {% endblock %}

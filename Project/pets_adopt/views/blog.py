@@ -21,9 +21,11 @@ def post_new(request, pets_id):
     template = 'pets_adopt/blog/post_new.html'
     pet = get_object_or_404(Pets, id=pets_id)
     if request.method == 'POST':
-        form = Blog_Post(request.POST)
+        form = Blog_Post(request.POST, request.FILES)
         if form.is_valid:
+            image_file = request.FILES["photo"]
             blog = form.save(commit=False)
+            blog.photo = image_file
             blog.author = request.user
             blog.pet= pet
             blog.published_date = timezone.now()
