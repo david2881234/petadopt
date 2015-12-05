@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f57802a-6116-484e-a65d-eb3ffbf1dc0e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/static/css/base.css" afterPath="$PROJECT_DIR$/Project/static/css/base.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets_adopt/base.html" afterPath="$PROJECT_DIR$/templates/pets_adopt/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pets_adopt/views/blog.py" afterPath="$PROJECT_DIR$/pets_adopt/views/blog.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pets_adopt/views/pet.py" afterPath="$PROJECT_DIR$/pets_adopt/views/pet.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets_adopt/extra/pet_search.html" afterPath="$PROJECT_DIR$/templates/pets_adopt/extra/pet_search.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets_adopt/extra/questionnaire.html" afterPath="$PROJECT_DIR$/templates/pets_adopt/extra/questionnaire.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/pets_adopt/signup.html" afterPath="$PROJECT_DIR$/templates/pets_adopt/signup.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pets_adopt/views/user.py" afterPath="$PROJECT_DIR$/pets_adopt/views/user.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Project.iws" />
@@ -24,7 +19,7 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Project$Test__templates_pets_adopt_base.coverage" NAME="Test: templates.pets_adopt.base Coverage Results" MODIFIED="1448909315287" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/Project$manage.coverage" NAME="manage Coverage Results" MODIFIED="1449344546520" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Project$manage.coverage" NAME="manage Coverage Results" MODIFIED="1449347339896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Project$tests.coverage" NAME="tests Coverage Results" MODIFIED="1445372365169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/pets_adopt" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -48,7 +43,7 @@
       <file leaf-file-name="post_a_pet.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pets_adopt/post_a_pet.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.375">
+            <state vertical-scroll-proportion="0.0">
               <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
               <folding />
             </state>
@@ -58,7 +53,7 @@
       <file leaf-file-name="questionnaire.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pets_adopt/extra/questionnaire.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
               <folding />
             </state>
@@ -75,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="user.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pets_adopt/views/user.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.40449437">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -89,7 +84,7 @@
         <entry file="file://$PROJECT_DIR$/Project/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
+              <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
               <folding>
                 <element signature="e#630#681#0" expanded="true" />
               </folding>
@@ -107,10 +102,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="base.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project/static/css/base.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.06741573">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
               <folding />
             </state>
@@ -120,7 +115,7 @@
       <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pets_adopt/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
@@ -130,7 +125,7 @@
       <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pets_adopt/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.625">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
@@ -140,8 +135,8 @@
       <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/pets_adopt/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.5">
-              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+            <state vertical-scroll-proportion="-23.75">
+              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -192,12 +187,10 @@
         <option value="$PROJECT_DIR$/templates/pets_adopt/adopt_action/adopt_success2.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/adopt_action/adopt_success1.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/adopt_action/adopt_success3.html" />
-        <option value="$PROJECT_DIR$/pets_adopt/views/user.py" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/pets_detail.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/user_edit.html" />
         <option value="$PROJECT_DIR$/Project/settings.py" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/adopt_action/check_response.html" />
-        <option value="$PROJECT_DIR$/Project/urls.py" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/member_center/my_pet.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/member_center/receiving_pet.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/adopt_action/check_confirm.html" />
@@ -211,10 +204,12 @@
         <option value="$PROJECT_DIR$/templates/pets_adopt/login.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/extra/questionnaire.html" />
         <option value="$PROJECT_DIR$/templates/pets_adopt/post_a_pet.html" />
-        <option value="$PROJECT_DIR$/templates/pets_adopt/base.html" />
         <option value="$PROJECT_DIR$/pets_adopt/views/pet.py" />
         <option value="$PROJECT_DIR$/pets_adopt/views/blog.py" />
         <option value="$PROJECT_DIR$/Project/static/css/base.css" />
+        <option value="$PROJECT_DIR$/Project/urls.py" />
+        <option value="$PROJECT_DIR$/templates/pets_adopt/base.html" />
+        <option value="$PROJECT_DIR$/pets_adopt/views/user.py" />
       </list>
     </option>
   </component>
@@ -271,8 +266,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -521,6 +514,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -872,16 +867,16 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2812749" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28605577" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817337" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2647059" sideWeight="0.56573707" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2647059" sideWeight="0.5689243" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.40318725" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287037" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32817337" sideWeight="0.49721116" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2647059" sideWeight="0.43426296" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2647059" sideWeight="0.4310757" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32792208" sideWeight="0.42891565" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1102,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="560.6667">
           <caret line="4" column="117942" selection-start-line="4" selection-start-column="117942" selection-end-line="4" selection-end-column="117942" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1118,7 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1244,15 +1237,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pets_adopt/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pets_adopt/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
@@ -1260,7 +1245,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pets_adopt/extra/questionnaire.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
           <folding />
         </state>
@@ -1268,16 +1253,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/pets_adopt/post_a_pet.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.375">
+        <state vertical-scroll-proportion="0.0">
           <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/pets_adopt/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.5">
-          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -1287,24 +1264,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pets_adopt/views/user.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="20" selection-start-line="57" selection-start-column="20" selection-end-line="57" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="55" selection-start-line="46" selection-start-column="55" selection-end-line="46" selection-end-column="55" />
-          <folding>
-            <element signature="e#630#681#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1318,8 +1277,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/static/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06741573">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="73" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+          <folding>
+            <element signature="e#630#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pets_adopt/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/pets_adopt/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.75">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pets_adopt/views/user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40449437">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
           <folding />
         </state>
       </provider>
