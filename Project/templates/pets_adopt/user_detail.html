@@ -7,7 +7,7 @@
   </style>
 {% endblock %}
 {% block content %}
-    <table align="center" class="table" id="all_table">
+    <table align="center" class="table table-bordered" id="all_table">
       <tr><td Colspan="2"><h3>個人簡介</h3></td></tr>
       <tr><td>姓名</td><td>{{ usr.name }}</td></tr>
       <tr><td>性別</td><td>{{ usr.get_gender_display }}</td></tr>
@@ -16,7 +16,7 @@
     </table>
 
     {% if all_comment %}
-    <table align="center" class="table" id="all_table">
+    <table align="center" class="table table-bordered" id="all_table">
       <tr><td Colspan="2"><h3>評價列表</h3></td></tr>
     {% for comment in all_comment %}
       <tr><td>評語：</td><td>{{ comment }}</td></tr>
@@ -24,11 +24,11 @@
     {% endfor %}
     </table>
     {% endif %}
-    <table align="center" class="table" id="all_table">
+    <table align="center" class="table table-bordered" id="all_table">
       <tr><td>優良評價:{{ good }}</td><td>普通評價:{{ ok }}</td><td>不良評價:{{ bad }}</td></tr>
     </table>
     {% if all_pet %}
-      <table align="center" class="table" id="all_table">
+      <table align="center" class="table table-bordered" id="all_table">
         <tr><td Colspan="2"><h3>他的寵物</h3></td></tr>
         {% for pet in all_pet %}
 　      <tr>
