@@ -19,6 +19,12 @@
 .errorlist {
     color: red;
 }
+
+td
+{
+    max-width: 220px;
+    word-wrap: break-word;
+}
 /***************end of base.html****************/
 
 
@@ -98,3 +104,13 @@
     margin-top: 30px;
 }
 /***************end of post_new.html****************/
+
+
+/***************start of pets_detail.html****************/
+.post-detail-right-part {
+    margin-bottom: 10px;
+}
+#pet-detail-picture {
+    width: 100%;
+}
+/***************end of pets_detail.html****************/

@@ -1,47 +1,80 @@
 {% extends "pets_adopt/base.html" %}
 
 {% block content %}
-    <a href="/blog/{{ pet.id }}">
-        <button type="submit" class="btn btn-default">看看{{ pet.pet_name }}的日誌</button>
-    </a>
-    {% if user.is_authenticated %}
-        {% if can_adopt == 2 %}
-        <a href="#">
-            <button type="submit" class="btn btn-default">{{ pet.pet_name }}已經被領養走了</button>
-        </a>
-        {% elif can_adopt == 1 %}
-        <a href="#">
-            <button type="submit" class="btn btn-default">你是{{ pet.pet_name }}的主人</button>
-        </a>
-        {% else %}
-        <a href="/post/adopt/{{ pet.id }}">
-            <button type="submit" class="btn btn-default">我要領養{{ pet.pet_name }}</button>
-        </a>
-        {% endif %}
 
-    {% else %}
-         <a href="{% url 'login' %}">
-            <button type="submit" class="btn btn-default">請先登入</button>
-        </a>
-    {% endif %}
-    {% if pet.state == 1 %}
-        <h1>新主人</h1>
-        <a href="{% url 'user_detail' user_id=pet.pet_owner.id %}">{{ pet.pet_owner }}</a>
-    {% endif %}
-    <h1>發怖者</h1>
-    <a href="{% url 'user_detail' user_id=pet.pet_publisher.id %}">{{ pet.pet_publisher }}</a>
-    <h1>狗狗名字</h1>
-    {{ pet.pet_name }}
-    <h1>狗狗領養狀態</h1>
-    {{ pet.get_state_display }}
-    <h1>狗狗介紹</h1>
-    {{ pet.content }}
-    <h1>毛色</h1>
-    {{ pet.get_color_display }}
-    <h1>結紮</h1>
-    {{ pet.get_neuter_display }}
-    <h1>照片</h1>
-    <img src="{{ MEDIA_URL }}{{ pet.photo }}">
-    <br/>
-    <a href="{% url 'index' %}">回首頁</a>
+<div id="pet-detail-contain">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="post-detail-right-part">
+                <a class="btn btn-default" href="/blog/{{ pet.id }}" role="button">
+                    看看{{ pet.pet_name }}的日誌
+                </a>
+            </div>
+            <div class="post-detail-right-part">
+            {% if user.is_authenticated %}
+                {% if can_adopt == 2 %}
+                <a href="#">
+                    <button type="submit" class="btn btn-default">{{ pet.pet_name }}已經被領養走了</button>
+                </a>
+                {% elif can_adopt == 1 %}
+                <a href="#">
+                    <button type="submit" class="btn btn-default">你是{{ pet.pet_name }}的主人</button>
+                </a>
+                {% else %}
+                <a href="/post/adopt/{{ pet.id }}">
+                    <button type="submit" class="btn btn-default">我要領養{{ pet.pet_name }}</button>
+                </a>
+                {% endif %}
+
+            {% else %}
+                 <a href="{% url 'login' %}">
+                    <button type="submit" class="btn btn-default">請先登入</button>
+                </a>
+            {% endif %}
+            </div>
+
+            <div class="post-detail-right-part">
+            {% if pet.state == 1 %}
+                <a href="{% url 'user_detail' user_id=pet.pet_owner.id %}"
+                   class="btn btn-default" role="button">新主人{{ pet.pet_owner }}</a>
+            {% endif %}
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-hover">
+              <tr>
+                <td>發怖者</td>
+                <td><a href="{% url 'user_detail' user_id=pet.pet_publisher.id %}">
+                    {{ pet.pet_publisher }}</a></td>
+              </tr>
+                <tr>
+                    <td>狗狗名字</td>
+                    <td>{{ pet.pet_name }}</td>
+                </tr>
+                <tr>
+                    <td>狗狗領養狀態</td>
+                    <td>{{ pet.get_state_display }}</td>
+                </tr>
+                <tr>
+                    <td>毛色</td>
+                    <td>{{ pet.get_color_display }}</td>
+                </tr>
+                <tr>
+                    <td>結紮</td>
+                    <td>{{ pet.get_neuter_display }}</td>
+                </tr>
+                <tr>
+                    <td>狗狗介紹</td>
+                    <td>{{ pet.content }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <img src="{{ MEDIA_URL }}{{ pet.photo }}" id="pet-detail-picture">
+        </div>
+    </div>
+
+</div>
 {% endblock %}
