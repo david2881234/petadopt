@@ -76,3 +76,25 @@
     margin-top: 30px;
 }
 /***************end of user_edit.html****************/
+
+
+/***************start of sent_form.html****************/
+#adopt-sent-form {
+    width: 80%;
+    margin-left: 10%;
+}
+/***************end of sent_form.html****************/
+
+
+/***************start of post_new.html****************/
+.form-page-contain {
+    width: 80%;
+    margin-left: 10%;
+}
+.form-page-contain h2 {
+    text-align: center;
+}
+#post-new-form {
+    margin-top: 30px;
+}
+/***************end of post_new.html****************/

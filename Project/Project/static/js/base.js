@@ -33,4 +33,22 @@ $(document).ready(function() {
     $("#id_breed").addClass("form-control").attr("placeholder","請填寫品種");
     $("#id_content").addClass("form-control").attr("placeholder","請填寫寵物的介紹");
     /************end of post_a_pet.html*********************/
+
+
+    /************start of sent-form.html*********************/
+    $('#adopt-sent-form').find('textarea').attr("placeholder","請填寫您的認養理由，可以描述您對寵物的理解，您爲什" +
+        "麼覺得自己適合領養這隻寵物等等。字數勿超過200字。");
+    /************end of sent-form.html*********************/
+
+
+    /************start of post_new.html*********************/
+    $('#post-new-form').find('#id_title').addClass("form-control").attr("placeholder","請填寫日誌標題")
+        .parent().parent().parent().find('#id_content').attr("placeholder","請填寫日誌內容，可以介紹寵物的日常生活等等");
+    /************end of post_new.html*********************/
+
+
+    /************start of adopt_success3.html*********************/
+    $('#adopt-success3-form').find('#id_comment').addClass("form-control")
+        .attr("placeholder","請寫下您對對方的評價。");
+    /************end of adopt_success3.html*********************/
 });
