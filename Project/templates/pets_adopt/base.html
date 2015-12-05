@@ -31,13 +31,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{% url 'index' %}">首頁</a></li>
-
-              {% if user.is_authenticated %}
-               <li><a href="{% url 'new_pets' %}">我要送養</a></li>
-               <li><a href="{% url 'pet_search' %}">我要領養</a></li>
-              {% endif %}
-            <li><a href="{% url 'questionnaire' %}">自我評估</a></li>
+            <li class="{% if nbar == 'home' %}active{% endif %}"><a href="{% url 'index' %}">首頁</a></li>
+            <li class="{% if nbar == 'send' %}active{% endif %}"><a href="{% url 'new_pets' %}">我要送養</a></li>
+            <li class="{% if nbar == 'get' %}active{% endif %}"><a href="{% url 'pet_search' %}">我要領養</a></li>
+            <li class="{% if nbar == 'question' %}active{% endif %}"><a href="{% url 'questionnaire' %}">自我評估</a></li>
           </ul>
           <ul class = "nav navbar-nav navbar-right">
             {% if user.is_authenticated %}

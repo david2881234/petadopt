@@ -38,7 +38,7 @@ def post_new(request, pets_id):
 
 def question_index(request):
     template = 'pets_adopt/extra/questionnaire.html'
-    return render(request, template, {})
+    return render(request, template, {'nbar': 'question'})
 
 
 def question_handle(request):
@@ -50,4 +50,4 @@ def question_handle(request):
             result += 10
     if result >= 70:
         right = True
-    return render(request, template, {'right': right, 'result': result, })
+    return render(request, template, {'right': right, 'result': result, 'nbar': 'question'})

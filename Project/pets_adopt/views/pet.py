@@ -12,26 +12,28 @@ def index(request): #首頁,顯示所有寵物資訊,並能更改狀態
     template_name = 'pets_adopt/index.html'
     pet_not_adopt = Pets.objects.filter(state=0)
     pet_have_adopt = Pets.objects.filter(state=1)
-    return render(request,template_name,{'pet_not_adopt':pet_not_adopt,'pet_have_adopt':pet_have_adopt})
+    return render(request,template_name,{'pet_not_adopt':pet_not_adopt,'pet_have_adopt':pet_have_adopt,'nbar': 'home'})
 
 
-@login_required
 def new_pet(request): #PO一個寵物送養資訊,確認後顯示寵物細節
-    template_name = 'pets_adopt/post_a_pet.html'
-    if request.method == 'POST':
-        form = Post_Pet(request.POST,request.FILES)
-        if form.is_valid:
-            image_file = request.FILES["photo"]
-            Pets = form.save(commit=False)
-            Pets.photo = image_file
-            Pets.pet_publisher = request.user
-            Pets.pet_owner = request.user
-            Pets.save()
-            messages.success(request,u'新增寵物成功')
-            return redirect('pet_detail',pets_id=Pets.id)
+    if request.user.is_authenticated():
+        template_name = 'pets_adopt/post_a_pet.html'
+        if request.method == 'POST':
+            form = Post_Pet(request.POST,request.FILES)
+            if form.is_valid:
+                image_file = request.FILES["photo"]
+                Pets = form.save(commit=False)
+                Pets.photo = image_file
+                Pets.pet_publisher = request.user
+                Pets.pet_owner = request.user
+                Pets.save()
+                messages.success(request,u'新增寵物成功')
+                return redirect('pet_detail',pets_id=Pets.id)
+        else:
+            form = Post_Pet()
+            return render(request,template_name,{'form':form,'nbar': 'send'})
     else:
-        form = Post_Pet()
-        return render(request,template_name,{'form':form})
+        return redirect('login')
 
 
 def pet_detail(request, pets_id): #顯示寵物細節,已領養 或 登入者就是寵物擁有者時,沒有領養按鈕
@@ -126,7 +128,7 @@ def pet_adopt_second_confirm(request, adopt_id): #收養者確認領養，等待
     #pet.save()
     return render(request,template_name,{'adopt_yes':adopt_yes,'publisher':publisher})
 
-
+@login_required
 def pet_adopt_last_confirm(request, adopt_id): #送養者確認完畢後，將那個領養表單設定為已領養，寵物state也設定為已領養,主人換掉
     adopt_yes = get_object_or_404(Adopt, id=adopt_id)
     pet = adopt_yes.adopt_pet
@@ -193,7 +195,7 @@ def pet_search(request):
     else:
         need_array = (species, sex, area, size, age, color)
     return render(request, template_name,
-                  {'pet': pet, 'shows': shows, 'need_array': need_array, })
+                  {'pet': pet, 'shows': shows, 'need_array': need_array, 'nbar': 'get'})
 
 
 

@@ -1,5 +1,10 @@
 {% extends "pets_adopt/base.html" %}
-
+{% block is_active %}
+  <li><a href="{% url 'index' %}">首頁</a></li>
+  <li><a href="{% url 'new_pets' %}">我要送養</a></li>
+  <li class="active"><a href="{% url 'pet_search' %}">我要領養</a></li>
+  <li><a href="{% url 'questionnaire' %}">自我評估</a></li>
+{% endblock %}
 {% block content %}
     <h3>搜尋你心目中的的寵物</h3>
     <div class="row">
