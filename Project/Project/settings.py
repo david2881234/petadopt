@@ -39,7 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #'social_auth',
-    # 'django_extensions',
+    #'django_extensions',
     'pets_adopt',
 )
 

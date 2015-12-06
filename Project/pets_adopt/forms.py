@@ -34,7 +34,8 @@ class UserForm(UserCreationForm):
         }
 
 class User_Edit(forms.ModelForm):
-    line = forms.CharField(label='Line ID',max_length=20,required=False)
+    line = forms.CharField(label='Line ID(非必填)',max_length=20,required=False)
+    home_tel = forms.CharField(label='家電(非必填)',max_length=10,required=False)
     class Meta():
         model = get_user_model()
         fields = ('email','profile','mobile','home_tel','facebook','line','profile')
