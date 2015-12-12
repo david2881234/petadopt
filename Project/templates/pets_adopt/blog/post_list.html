@@ -18,8 +18,12 @@
         {% for post in posts %}
             <table class="table table-bordered">
               <tr><td>{{ post.title }}</td></tr>
-              <tr><td>作者：<a href="{% url 'user_detail' user_id=pet.pet_owner.id %}" target="_blank">{{ pet.pet_owner }}</a></td></tr>
+              {% if pet.pet_owner == pet.pet_publisher %}
+                <tr><td>作者：<a href="{% url 'user_detail' user_id=pet.pet_publisher.id %}" target="_blank">{{ pet.pet_publisher }}</a></td></tr>
+              {% elif pet.pet_owner != pet.pet_publisher %}
+                <tr><td>作者：<a href="{% url 'user_detail' user_id=pet.pet_owner.id %}" target="_blank">{{ pet.pet_owner }}</a></td></tr>
               <tr><td>{{ post.content }}</td></tr>
+              {% endif %}
               <tr><td><img src="{{ MEDIA_URL }}{{ post.photo }}" width="30%"></td></tr>
               <tr><td>發文日期:{{ post.published_date }}</td></tr>
             </table>
