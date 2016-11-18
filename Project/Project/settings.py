@@ -87,7 +87,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'pets_adopt',
         'USER': 'root',
-        'PASSWORD': 'veto499',
+        'PASSWORD': 'DontWannaTellU',
         'HOST': '',
         'PORT': '',
     }
