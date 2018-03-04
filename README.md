@@ -1,4 +1,4 @@
-# 狗日子的第十三日 (Animal Adoption System)
+# 狗日子的第十三日 (Animal Adoption Platform)
 
 ## 簡介
 
